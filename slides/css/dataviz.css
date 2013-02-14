@@ -1,0 +1,23 @@
+@charset "utf-8";
+/*********************************************
+ * DATAVIZ Specific Styles
+ *********************************************/
+
+.reveal #last-fm-svg {
+  width:840px;
+  height:340px; 
+  overflow:scroll; 
+  position:relative;
+}
+
+.reveal #last-fm-svg div{
+  position:absolute; 
+  width:1260px; 
+  height:510px; 
+  padding:0; 
+  top:-80px;
+}
+.reveal #last-fm-svg div img {
+  margin:0;
+  border:0;
+}

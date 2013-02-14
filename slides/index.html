@@ -16,6 +16,8 @@
 
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/robreact.css" id="theme">
+    
+		<link rel="stylesheet" href="css/dataviz.css" id="theme">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -90,11 +92,11 @@
 				</section>
 				<section>
 					<h1>Data Visualization</h1>
-				<a href="http://www.flickr.com/photos/andreasmb/3100291750/" title="Visualization Examples  by Andreas_MB, on Flickr"><img src="http://farm4.staticflickr.com/3064/3100291750_8623c332f9.jpg" width="500" height="333" alt="Visualization Examples "></a>	
-				<small>Rhymes with crufty? <a href="http://www.flickr.com/photos/andreasmb/3100291750/">Photo from Andreas_MB on Flickr</a></small>
-        <aside  class="notes">
+				  <a href="http://www.flickr.com/photos/andreasmb/3100291750/" title="Visualization Examples  by Andreas_MB, on Flickr"><img src="http://farm4.staticflickr.com/3064/3100291750_8623c332f9.jpg" width="500" height="333" alt="Visualization Examples "></a>	
+				  <small>Rhymes with crufty? <a href="http://www.flickr.com/photos/andreasmb/3100291750/">Photo from Andreas_MB on Flickr</a></small>
+          <aside  class="notes">
 					Know who this guy is? Everyone? Do you all have the books? Can I skip explaining what I mean when I say data visualization?
-				</aside>
+				  </aside>
 		    </section>
         <section>
           <h1>Taking this</h1>
@@ -102,18 +104,84 @@
         </section>
         <section>
           <h1>And turning it into this</h1>
-          <div style="width:840px;height:340px; overflow:scroll; position:relative;"><div style="position:absolute; width:1260px; height:510px; padding:0; top:-80px;"><img src="img/graph_236833.svgz" width="1260" height="510" style="margin:0;border:0;"></div></div>
+          <div class="big-image" id="last-fm-svg"><div><img src="img/graph_236833.svgz" width="1260" height="510"></div></div>
           
           <small>via the awesome <a href="http://lastgraph3.aeracode.org/user/rob_react/posters/">http://lastgraph3.aeracode.org/user/rob_react/posters/</a></small>
         </section>
+        <section>
+          <section>
+            <h1>Scalable Vector Graphics (SVG)</h1>
+            <h2>It just rolls off the tongue.</h2>
+          </section>
+          <section>
+            <p>SVG has had a long and strange journey to the world of ‘emerging technologies” SVG was actually defined in 1999, so it’s not exactly the new kid on the block.</p>
+          </section>
+          <section>
+            <p>Still, it took a while to catch on, so in some ways it feels like the new kid on the block. </p>
+          </section>
+          <section>
+            <p>SVG is a vector based grammar and, since it’s defined as XML it also allows for access using common DOM manipulation tools. Since SVG elements are simple DOM elements, properties are stored as part of the regular DOM and access to individual elements is available using traditional DOM access methods like <code>document.geElementById</code> and <code>document.getElementsByTagName</code>.</p>
+          </section>
+          <section>
+            <h1>It looks like this</h1>
+            <svg width="200" height="200"
+              viewPort="0 0 200 200" version="1.1"
+              xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="100" r="75" fill="#fe57a1"/>
+            </svg>
+          </section>
+          <section>
+            <h1>Viewing Source</h1>
+            <pre><code>
+&lt;svg width=&quot;200&quot; height=&quot;200&quot;
+    viewPort=&quot;0 0 200 200&quot; version=&quot;1.1&quot;<br>
+    xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;<br>
+    &lt;circle cx=&quot;100&quot; cy=&quot;100&quot; r=&quot;75&quot; fill=&quot;#fe57a1&quot;/&gt;<br>          
+&lt;/svg&gt;
+            </pre></code>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Canvas</h1>
+          </section>
+          <section>
+            <p>The canvas element and associated API started life as an Apple extension to HTML. From there it blossomed into one of the early stars of the HTML5 era.</p> 
+          </section>
+          <section>
+            <p>The canvas element provides a scriptable interface for drawing two-dimensional images in the browser. Even without full browser support on the desktop, developers have embraced canvas fully. </p>
+          </section>
+          <section>
+            <p>It’s been used for everything from high traffic visualizations to game engines, a popular system for delivering custom fonts, and a port of the Processing programming language into JavaScript.</p>
+          </section>
+  <section>
+            <h1>It looks like this</h1>
+    <canvas id="circle" width="800" height="300">
+            </canvas>
+          </section>
+          <section>
+          <h1>Viewing Source</h1>
+          <pre><code>            &lt;canvas id=&quot;circle&quot; width=&quot;800&quot; height=&quot;300&quot;&gt;<br>            &lt;/canvas&gt;</pre>
+          </code>
+          <pre><code>
+               var ctx = document
+                           .getElementById("circle").getContext("2d");
+               ctx.beginPath();
+               ctx.arc(400, 150, 75, 0, Math.PI*2, true); 
+               ctx.fillStyle = "#fe57a1";
+               ctx.closePath();
+               ctx.fill();
+          </pre></code>
+          </section>
 			</div>
 
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
-
-		<script>
+	<script src="js/reveal.min.js"></script>
+  <script src="../_assets/js/vendor/jquery-1.9.1.min.js"></script>
+  <script src="../_assets/js/main.js"></script>
+	<script>
 
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
