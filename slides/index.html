@@ -49,7 +49,7 @@
 					<ul>
 						<li>Who?
               <ul>
-                <li>Why listen to me?</li>
+                <li>About me</li>
               </ul>
             </li>  
 						<li>What?
@@ -66,37 +66,39 @@
 				</section>
 				<section>
   				<section>
-	  				<h1>Rob Larsen</h1>
-		  			<img src="http://htmlcssjavascript.com/wp-content/uploads/2009/05/7045e2be6d3f2ab6a5391759db00e7b7.jpeg">
+	  				<h1>Me</h1>
+	  				<img src="http://htmlcssjavascript.com/wp-content/uploads/2009/05/7045e2be6d3f2ab6a5391759db00e7b7.jpeg">
+		  			<h2>Rob Larsen</h2>
 			  	</section>
 				  <section>	
 					  <h1>Work</h1>
 						<ul>
 						  <li>Making web stuff since 1997</li>
 						  <li>HTML + CSS + JavaScript as my day job since 1999</li>
-						  <li>Agency guy/consultant (ex Sapient, Isobar.)  Big brands all day (Adidas, Motorola, Samsung, etc.) <em>Now</em> I come with with 100% more suits.</li>
+						  <li><em>Then</em>: agency guy/consultant-- big brands all day (Adidas, Motorola, Samsung, etc.) <em>Now</em>: I come with with 100% more suits.</li>
 						</ul>
 					</section>
 					<section>
-						<h1>Seriously, suits</h1>
+						<h1>Seriously, <strong>suits</strong></h1>
 					</section>
 					<section>
-						<h1>Other Work</h1>
+						<h1>More Work</h1>
 					  <ul>	
-						  <li>Open source: H5BP Ant Build Script, CanvasJS ++ </li>
-						  <li>I wrote this, it just came out:<br>
-						  <img src="img/beginning-html-and-css.jpg" width="50%"></li>
-						  <li>Tweet <a href="https://twitter.com/robreact">@robreact</a> &amp; blog @ <a href="http://HTMLCSSJavaScript.com">HTMLCSSJavaScript.com</a></li>
+						  <li>Open source: <a href="https://github.com/h5bp/ant-build-script">H5BP Ant Build Script</a>, <a href="https://github.com/roblarsen/CanvasJS">CanvasJS</a> <a ref="https://github.com/roblarsen">++</a> </li>
+						   <li><a href="https://twitter.com/robreact">@robreact</a> &amp; blog @ <a href="http://HTMLCSSJavaScript.com">HTMLCSSJavaScript.com</a></li>
+						   <li>I wrote this, it just came out:<br>
+						   <img src="img/beginning-html-and-css.jpg" width="30%"></li>
 					  </ul>
+					</section>
+					<section>
+						<h1>Art</h1>
+					  <img src="http://media.drunkenfist.com/img/art/graffiti_art/walls/wall-at-central-square.jpg">
 					</section>
 				</section>
 				<section>
 					<h1>Data Visualization</h1>
 				  <a href="http://www.flickr.com/photos/andreasmb/3100291750/" title="Visualization Examples  by Andreas_MB, on Flickr"><img src="http://farm4.staticflickr.com/3064/3100291750_8623c332f9.jpg" width="500" height="333" alt="Visualization Examples "></a>	
 				  <small>Rhymes with crufty? <a href="http://www.flickr.com/photos/andreasmb/3100291750/">Photo from Andreas_MB on Flickr</a></small>
-          <aside  class="notes">
-					Know who this guy is? Everyone? Do you all have the books? Can I skip explaining what I mean when I say data visualization?
-				  </aside>
 		    </section>
         <section>
           <h1>Taking this</h1>
@@ -120,7 +122,14 @@
             <p>Still, it took a while to catch on, so in some ways it feels like the new kid on the block. </p>
           </section>
           <section>
-            <p>SVG is a vector based grammar and, since it’s defined as XML it also allows for access using common DOM manipulation tools. Since SVG elements are simple DOM elements, properties are stored as part of the regular DOM and access to individual elements is available using traditional DOM access methods like <code>document.geElementById</code> and <code>document.getElementsByTagName</code>.</p>
+            <p>SVG is a vector based grammar and, since it’s defined as XML it also allows for access using common DOM manipulation tools. Since SVG elements are simple DOM elements, properties are stored as part of the regular DOM and access to individual elements is available using traditional DOM access methods like <code>document.geElementById</code> and <code>document.getElementsByTagName</code>. It can also be styled with CSS.</p>
+          </section>
+          <section>
+          	<p>It scales!</p>
+
+          </section>	
+          <section>
+          	<p>One downside of SVG being DOM elements is that, if you have a lot of them, things can slow down significantly.</p>
           </section>
           <section>
             <h1>It looks like this</h1>
@@ -129,6 +138,20 @@
               xmlns="http://www.w3.org/2000/svg">
               <circle cx="100" cy="100" r="75" fill="#fe57a1"/>
             </svg>
+          </section>
+          <section>
+            <h1>Viewing Source</h1>
+            <pre><code>
+&lt;svg width=&quot;200&quot; height=&quot;200&quot;
+    viewPort=&quot;0 0 200 200&quot; version=&quot;1.1&quot;<br>
+    xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;<br>
+    &lt;circle cx=&quot;100&quot; cy=&quot;100&quot; r=&quot;75&quot; fill=&quot;#fe57a1&quot;/&gt;<br>          
+&lt;/svg&gt;
+            </pre></code>
+          </section>
+          <section>
+            <h1>It can also look like this</h1>
+            <img src="img/circle.svg">
           </section>
           <section>
             <h1>Viewing Source</h1>
@@ -152,49 +175,60 @@
             <p>The canvas element provides a scriptable interface for drawing two-dimensional images in the browser. Even without full browser support on the desktop, developers have embraced canvas fully. </p>
           </section>
           <section>
-            <p>It’s been used for everything from high traffic visualizations to game engines, a popular system for delivering custom fonts, and a port of the Processing programming language into JavaScript.</p>
+            <p>It an extremely low level API. This means you can sometimes do more work but you have complete, pixel level control.  It's been used for everything from high traffic visualizations to game engines, a popular system for delivering custom fonts, and a port of the Processing programming language into JavaScript.</p>
           </section>
-  <section>
+          <section>
+            <p>The downside is that it's very low level. All of the DOM based tools you might have at you disposal have gone away as there's just one <code>&lt;canvas&lt;</code> element. Accessibility is also a concern. </p>
+          </section>
+          <section>
             <h1>It looks like this</h1>
-    <canvas id="circle" width="800" height="300">
+            <canvas id="circle" width="800" height="300">
             </canvas>
           </section>
           <section>
-          <h1>Viewing Source</h1>
-          <pre><code>            &lt;canvas id=&quot;circle&quot; width=&quot;800&quot; height=&quot;300&quot;&gt;<br>            &lt;/canvas&gt;</pre>
-          </code>
-          <pre><code>
-               var ctx = document
-                           .getElementById("circle").getContext("2d");
-               ctx.beginPath();
-               ctx.arc(400, 150, 75, 0, Math.PI*2, true); 
-               ctx.fillStyle = "#fe57a1";
-               ctx.closePath();
-               ctx.fill();
-          </pre></code>
+            <h1>Viewing Source</h1>
+            <pre><code>
+&lt;canvas id=&quot;circle&quot; width=&quot;800&quot; height=&quot;300&quot;&gt;<br>            &lt;/canvas&gt;
+            </pre></code>
+            <pre><code>
+   var ctx = document
+               .getElementById("circle").getContext("2d");
+   ctx.beginPath();
+   ctx.arc(400, 150, 75, 0, Math.PI*2, true); 
+   ctx.fillStyle = "#fe57a1";
+   ctx.closePath();
+   ctx.fill();
+            </pre></code>
           </section>
-			</div>
-
-		</div>
+          <section>
+          	<section>
+          	  <h1>Comparing Canvas and SVG</h1>
+            </section>
+            <section>
+            	<h1>Generally</h1>
+            </section>
+            <section>
+            	http://msdn.microsoft.com/en-us/library/ie/gg193983(v=vs.85).aspx
+            </section>
+          </section>
+			  </div>
+		  </div>
 
 		<script src="lib/js/head.min.js"></script>
-	<script src="js/reveal.min.js"></script>
-  <script src="../_assets/js/vendor/jquery-1.9.1.min.js"></script>
-  <script src="../_assets/js/main.js"></script>
-	<script>
-
-			// Full list of configuration options available here:
+	  <script src="js/reveal.min.js"></script>
+    <script src="../_assets/js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="../_assets/js/main.js"></script>
+	  <script>
+  	// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
-				progress: true,
+				controls: false,
+				progress: false,
 				history: true,
 				center: true,
-
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-
-				// Optional libraries used to extend on reveal.js
+  			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+  			// Optional libraries used to extend on reveal.js
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
