@@ -79,7 +79,7 @@
 						</ul>
 					</section>
 					<section>
-						<h1>Seriously, <strong>suits</strong></h1>
+						<h1>Seriously, <strong class="fragment fade-in">suits</strong></h1>
 					</section>
 					<section>
 						<h1>More Work</h1>
@@ -119,14 +119,22 @@
             <p>SVG has had a long and strange journey to the world of ‘emerging technologies” SVG was actually defined in 1999, so it’s not exactly the new kid on the block.</p>
           </section>
           <section>
-            <p>Still, it took a while to catch on, so in some ways it feels like the new kid on the block. </p>
+            <p>Still, it took a while to catch on, so you can't really blame people for lumping it in with "HTML5 and Friends." </p>
           </section>
           <section>
-            <p>SVG is a vector based grammar and, since it’s defined as XML it also allows for access using common DOM manipulation tools. Since SVG elements are simple DOM elements, properties are stored as part of the regular DOM and access to individual elements is available using traditional DOM access methods like <code>document.geElementById</code> and <code>document.getElementsByTagName</code>. It can also be styled with CSS.</p>
+            <p>SVG is a vector based XML grammar. When created in the context of a document SVG elements are DOM elements. That means properties are stored as part of the regular DOM and access to individual elements is available using traditional DOM access methods like <code>document.geElementById</code> and <code>document.getElementsByTagName</code>. It can also be styled with CSS.</p>
+          </section>
+          <section>
+          	<p>SVG can also be output from a vector based drawing program and used as the <code>src</code> of an <code>&lt;img&gt;</code> element. </p>
           </section>
           <section>
           	<p>It scales!</p>
-
+          	<img src="img/HTML5-logo.svg" width="5%">
+          	<img src="img/HTML5-logo.svg" width="10%">
+          	<img src="img/HTML5-logo.svg" width="15%">
+          	<img src="img/HTML5-logo.svg" width="20%">
+          	<img src="img/HTML5-logo.svg" width="25%">
+          	<img src="img/HTML5-logo.svg" width="100%">
           </section>	
           <section>
           	<p>One downside of SVG being DOM elements is that, if you have a lot of them, things can slow down significantly.</p>
@@ -156,11 +164,7 @@
           <section>
             <h1>Viewing Source</h1>
             <pre><code>
-&lt;svg width=&quot;200&quot; height=&quot;200&quot;
-    viewPort=&quot;0 0 200 200&quot; version=&quot;1.1&quot;<br>
-    xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;<br>
-    &lt;circle cx=&quot;100&quot; cy=&quot;100&quot; r=&quot;75&quot; fill=&quot;#fe57a1&quot;/&gt;<br>          
-&lt;/svg&gt;
+&lt;img src="img/circle.svg"&gt;
             </pre></code>
           </section>
         </section>
@@ -200,19 +204,20 @@
    ctx.fill();
             </pre></code>
           </section>
-          <section>
-          	<section>
-          	  <h1>Comparing Canvas and SVG</h1>
-            </section>
-            <section>
-            	<h1>Generally</h1>
-            </section>
-            <section>
-            	http://msdn.microsoft.com/en-us/library/ie/gg193983(v=vs.85).aspx
-            </section>
+        </section>
+        <section>
+        	<section>
+        	  <h1>Comparing Canvas and SVG</h1>
           </section>
-			  </div>
-		  </div>
+          <section>
+          	<h1>Generally</h1>
+          </section>
+          <section>
+            	http://msdn.microsoft.com/en-us/library/ie/gg193983(v=vs.85).aspx
+          </section>
+        </section>
+			</div>
+		</div>
 
 		<script src="lib/js/head.min.js"></script>
 	  <script src="js/reveal.min.js"></script>
@@ -237,7 +242,8 @@
 					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
+				],
+        maxScale: 1.4
 			});
 
 		</script>
