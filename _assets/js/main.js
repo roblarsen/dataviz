@@ -56,6 +56,8 @@
         chart: {
             renderTo: 'highstock'
         },
+
+
         yAxis: {
           labels: {
             formatter: function() {
