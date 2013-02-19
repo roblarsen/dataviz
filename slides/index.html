@@ -111,6 +111,9 @@
           <small>via the awesome <a href="http://lastgraph3.aeracode.org/user/rob_react/posters/">http://lastgraph3.aeracode.org/user/rob_react/posters/</a></small>
         </section>
         <section>
+          <h1>The Technologies</h1>
+        </section>
+        <section>
           <section>
             <h1>Scalable Vector Graphics (SVG)</h1>
             <h2>It just rolls off the tongue.</h2>
@@ -122,7 +125,7 @@
             <p>Still, it took a long while to catch on, so you can't really blame people for lumping it in with "HTML5 and Friends." </p>
           </section>
           <section>
-            <p>SVG is a vector based XML grammar. When created in the context of a document SVG elements are also DOM elements. That means properties are stored as part of the regular DOM and access to individual elements is available using traditional DOM access methods like <code>document.geElementById</code> and <code>document.getElementsByTagName</code>. It can also be styled with CSS.</p>
+            <p>SVG is a vector based XML grammar. When created in the context of a document SVG elements are also DOM elements. That means properties are stored as part of the regular DOM and access to individual elements is available using traditional DOM access methods like <code>document.geElementById</code> and <code>document.getElementsByTagName</code>. </p><p>It can also be styled with CSS.</p>
           </section>
           <section>
           	<p>SVG can also be output from a vector based drawing program and used as the <code>src</code> of an <code>&lt;img&gt;</code> element. </p>
@@ -198,6 +201,13 @@
    ctx.fill();
             </code></pre>
           </section>
+          <section>
+            <h1>Did I say low level?</h1>
+            <h2><code>arc</code> is all you need when you have <code>Math.PI*2</code></h2>
+            <pre><code>
+            ctx.arc(400, 150, 75, 0, Math.PI*2, true);
+            </code></pre>
+          </section> 
         </section>
         <section>
         	<section>
@@ -209,14 +219,29 @@
           </section>
           <section>
           <h1>Your Mileage May Vary</h1>
-            	<p>Since I don't have all day to go into the nuances, <a href="http://msdn.microsoft.com/en-us/library/ie/gg193983(v=vs.85).aspx">here's a deeper discussion of the issues involved.</a></p>
+            	<p>Since I don't have all day to go into the details of this nuanced issue: <a href="http://msdn.microsoft.com/en-us/library/ie/gg193983(v=vs.85).aspx">here's a deeper discussion of the issues involved.</a></p>
           </section>
         </section>
         <section>
-          <h1>Examples</h1>
+          <h1>In Practice</h1>
         </section>
         <section>
             <h1>SVG: Highcharts</h1>
+            <blockquote cite="http://www.highcharts.com/">Highcharts is a charting library written in pure JavaScript, offering intuitive, interactive charts to your web site or web application. Highcharts currently supports line, spline, area, areaspline, column, bar, pie, scatter, angular gauges, arearange, areasplinerange, columnrange and polar chart types.</blockquote>
+         </section>
+       <section>
+            <h1>SVG: Highstock</h1>      
+            <blockquote cite="http://www.highcharts.com/">Highstock lets you create stock or general timeline charts in pure JavaScript, including sophisticated navigation options like a small navigator series, preset date ranges, date picker, scrolling and panning.</blockquote>
+         
+         </section>
+         <section>
+          <p>Commercial products, but... awesome. </p>
+         </section>
+         <section>
+          
+          <div id="highstock">
+          </div>
+
          </section>
 			</div>
 		</div>
@@ -224,6 +249,9 @@
 		<script src="lib/js/head.min.js"></script>
 	  <script src="js/reveal.min.js"></script>
     <script src="../_assets/js/vendor/jquery-1.9.1.min.js"></script>
+
+    <script src="../_assets/js/vendor/Highstock-1.2.5/highstock.js"></script>
+    <script src="../_assets/js/vendor/date.js"></script>
     <script src="../_assets/js/main.js"></script>
 	  <script>
   	// Full list of configuration options available here:
