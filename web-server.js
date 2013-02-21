@@ -84,7 +84,7 @@ StaticServlet.MimeMap = {
   'jpeg': 'image/jpeg',
   'gif': 'image/gif',
   'png': 'image/png',
-  'svg': 'image/svg+xml'
+  'svg': 'image/svg+xml',
   'svgz': 'image/svg+xml'
 };
 
@@ -170,10 +170,17 @@ StaticServlet.prototype.sendRedirect_ = function(req, res, redirectUrl) {
 StaticServlet.prototype.sendFile_ = function(req, res, path) {
   var self = this;
   var file = fs.createReadStream(path);
+  if (path.split('.').pop() === "svgz" ){
   res.writeHead(200, {
-    'Content-Type': StaticServlet.
-      MimeMap[path.split('.').pop()] || 'text/plain'
+    'Content-Type': 'image/svg+xml',
+    'Content-Encoding' : 'gzip'
   });
+  } else {
+    res.writeHead(200, {
+      'Content-Type': StaticServlet.
+        MimeMap[path.split('.').pop()] || 'text/plain',
+    });
+  }
   if (req.method === 'HEAD') {
     res.end();
   } else {
@@ -183,7 +190,7 @@ StaticServlet.prototype.sendFile_ = function(req, res, path) {
     });
     file.on('error', function(error) {
       self.sendError_(req, res, error);
-    });
+    });  
   }
 };
 
