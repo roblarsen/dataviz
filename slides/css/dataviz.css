@@ -53,8 +53,23 @@
     background : url(../img/icons-32.png) -128px 2px no-repeat; 
  }
 .reveal .support li.android b {
-    background : url(../img/icons-32.png) -226px 2px no-repeat; 
+    background : url(../img/icons-32.png) -225px 2px no-repeat; 
  }
+.reveal .support li.ios_saf b {
+    background : url(../img/icons-32.png) -356px 2px no-repeat; 
+}
+.reveal .support li.op_mini b, .reveal .support li.op_mob b {
+    background : url(../img/icons-32.png) -290px 2px no-repeat; 
+}
+.reveal .support li.bb b {
+    background : url(../img/icons-32.png) -321px 2px no-repeat; 
+}
+.reveal .support li.and_chr b {
+    background : url(../img/icons-32.png) -192px 2px no-repeat; 
+}
+.reveal .support li.and_ff b {
+    background : url(../img/icons-32.png) -253px 2px no-repeat; 
+}
 .reveal .support li ul {
 
     display : inline-block;

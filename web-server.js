@@ -2,6 +2,7 @@
 /*
 from https://github.com/angular/angular-phonecat
  */
+console.log( "Making Sense of the Flood: Data Visualization in the Browser")
 var util = require('util'),
     http = require('http'),
     fs = require('fs'),

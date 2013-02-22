@@ -74,7 +74,7 @@
               
             }
             support("svg");
-            
+            support("canvas");
             function support( tech ){
             $.get("../data/"+tech+".json",function( data ){
                 var ul = "<ul>",
@@ -83,23 +83,16 @@
                   ul += "<li class=" + label +"><b>"+label+"</b>";
                   childUL = "<ul>";
                   var keys = Object.keys(data.stats[label]).sort(function(a,b){ 
-                    if (a.indexOf("-")){
-                      a = a.slice(0,a.indexOf("-")).trim();
-                    }
-                    if (b.indexOf("-")){
-                      b = b.slice(0,b.indexOf("-")).trim();
-                    }
-                    return a < b 
+                    return parseFloat(a) - parseFloat(b); 
                   });
-                  for (var support in data.stats[label]) {
-                    childUL += "<li class='"+data.stats[label][support]+"'>"+support+"</li>";
+                  for (var i = 0, len = keys.length; i < len; i++) {
+                    childUL += "<li class='"+data.stats[label][keys[i]]+"'>"+keys[i]+"</li>";
                   }
                   childUL +="</ul>";
                   ul += childUL;
                   ul +="</li>";
                 }
                 ul +="</ul>";
-                console.log(ul);
                 $(".support."+tech+"").html(ul)
               });
             }
