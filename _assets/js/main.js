@@ -71,8 +71,38 @@
                     },
                     series: seriesOptions
                 });
-              }
-
+              
+            }
+            support("svg");
+            
+            function support( tech ){
+            $.get("../data/"+tech+".json",function( data ){
+                var ul = "<ul>",
+                  childUL;
+                for (var label in data.stats ) {
+                  ul += "<li class=" + label +"><b>"+label+"</b>";
+                  childUL = "<ul>";
+                  var keys = Object.keys(data.stats[label]).sort(function(a,b){ 
+                    if (a.indexOf("-")){
+                      a = a.slice(0,a.indexOf("-")).trim();
+                    }
+                    if (b.indexOf("-")){
+                      b = b.slice(0,b.indexOf("-")).trim();
+                    }
+                    return a < b 
+                  });
+                  for (var support in data.stats[label]) {
+                    childUL += "<li class='"+data.stats[label][support]+"'>"+support+"</li>";
+                  }
+                  childUL +="</ul>";
+                  ul += childUL;
+                  ul +="</li>";
+                }
+                ul +="</ul>";
+                console.log(ul);
+                $(".support."+tech+"").html(ul)
+              });
+            }
             }
         }
     }())._init();

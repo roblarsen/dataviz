@@ -21,3 +21,61 @@
   margin:0;
   border:0;
 }
+.reveal .support li {
+    clear:both;
+    margin-top:4px;
+    list-style-type : none;
+    font-size:80%;
+    height:32px;
+}
+
+.reveal .support li b {
+    float:left;
+    text-indent : -9999px;
+    height:32px;
+    width : 32px;
+    margin: 2px 6px 0 0;    
+}
+.reveal .support li.ie b {
+    background : url(../img/icons-32.png) -159px 4px no-repeat; 
+}
+
+.reveal .support li.firefox b {
+    background : url(../img/icons-32.png) -64px 2px no-repeat; 
+ }
+.reveal .support li.chrome b {
+    background : url(../img/icons-32.png) -32px 2px no-repeat; 
+ }
+.reveal .support li.opera b {
+    background : url(../img/icons-32.png) -96px 2px no-repeat; 
+ }
+.reveal .support li.safari b {
+    background : url(../img/icons-32.png) -128px 2px no-repeat; 
+ }
+.reveal .support li.android b {
+    background : url(../img/icons-32.png) -226px 2px no-repeat; 
+ }
+.reveal .support li ul {
+
+    display : inline-block;
+    float : left;
+    margin-left : 0;
+
+}
+.reveal .support li li {
+    clear: none;
+    float:left;
+    display:block;
+    padding: 0 5px;
+    margin-left:0;
+}
+
+.reveal .support li li.y {
+ background : #6F6;
+}
+.reveal .support li li.p , .reveal .support li li.a {
+ background : #CC3;
+}
+.reveal .support li li.n {
+ background : #ccc;
+}
