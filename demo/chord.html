@@ -25,7 +25,10 @@ body {
   stroke: #000;
   stroke-width: .5px;
 }
-
+.group text {
+  font: 11px sans-serif;
+  pointer-events: none;
+}
 </style>
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -35,9 +38,7 @@ body {
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-
+    
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
@@ -46,22 +47,18 @@ body {
 
 // From http://mkweb.bcgsc.ca/circos/guide/tables/
 
-var matrix =[
-[2690,2312,1629,1413,1306,1171,1009,1008,869,746,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-[1064,0,1367,798,0,830,0,2473,0,0,1150,1119,995,704,691,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-[0,0,0,0,814,0,989,0,1937,0,0,0,0,539,749,617,579,556,541,535,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-[706,0,567,0,0,1568,0,1273,0,618,0,0,0,0,0,482,453,694,0,0,0,526,432,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,394,0,0,0,0,1253,794,700,663,659,594,479,429,399,0,0,0,0,0,0,0,0],
-[551,0,0,0,409,549,0,0,0,869,0,0,0,0,0,0,1479,0,418,770,462,446,326,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-[0,0,0,0,0,0,0,0,503,0,0,0,0,0,0,0,0,0,0,0,956,0,0,0,0,0,0,0,0,0,0,1066,951,829,452,0,0,0,0],
-[0,0,0,0,469,0,0,0,0,0,0,0,0,0,417,0,389,0,0,385,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-[333,0,0,0,0,0,455,0,0,618,0,0,0,0,0,660,0,0,0,1322,384,545,0,0,0,0,0,0,0,0,0,0,0,0,0,0,446,324,308,0],
-[656,876,895,431,0,0,0,2369,0,0,473,524,464,0,448,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,413],
-[0,0,0,0,626,0,0,0,549,0,0,0,0,0,322,0,1159,299,0,0,437,0,465,0,0,0,0,0,0,0,0,0,0,361,307,0,0,0,0,397]
-],
-names = ["TD Garden","Lewis Wharf - Atlantic Ave","Rowes Wharf - Atlantic Ave.","Aquarium Station - 200 Atlantic Ave.","Cross St. at Hanover St. ","Boylston St. at Arlington St. ","Boylston St.  / Berkeley St. ","South Station - 700 Atlantic Ave","Seaport Hotel","Boston Public Library - 700 Boylston St. ","Congress/Sleeper","Post Office Square","Seaport Square - Seaport Blvd. at Boston Wharf","Summer St. / Arch St. ","Faneuil Hall - Union St. at North St. ","Charles Circle - Charles St. at Cambridge St. ","Tremont St. / West St.","Newbury St. / Hereford St. ","Stuart St. at Charles St. ","Beacon St. / Mass Ave","The Esplanade - Beacon St. at Arlington St. ","Kenmore Sq. /Comm Ave","Mayor Thomas M. Menino  - Government Center","Washington St. at Rutland St. ","Tremont St / W Newton St. ","Back Bay / South End Station","Roxbury Crossing Station","Columbus Ave. at Mass Ave.","Christian Science Plaza,Washington St. at Waltham St. ","Prudential Center / Belvidere","Boston Medical Center - 721 Mass. Ave","Agganis Arena - 925 Comm. Ave.","B.U. Central - 725 Comm Ave","Packard's Corner - Comm. Ave at Brighton Ave. ","Landmark Centre","MIT at Mass Ave / Amherst St.","Christian Science Plaza","Boylston / Mass Ave","Chinatown Gate Plaza - Surface Rd. at Beach St. ","Yawkey Way at Boylston St." ];
-
-
+var matrix = [
+[2689, 508, 1170, 189, 1007, 187, 745, 248, 263, 2311],
+[1064, 121, 830, 323, 2473, 393, 453, 312, 533, 599],
+[506, 296, 813, 530, 988, 540, 1936, 578, 747, 268],
+[706, 311, 1568, 526, 1273, 371, 618, 694, 481, 227],
+[178, 701, 277, 176, 663, 227, 379, 284, 330, 111],
+[550, 270, 548, 445, 196, 769, 868, 317, 1477, 195],
+[344, 141, 468, 955, 172, 346, 502, 388, 415, 97],
+[333, 207, 455, 545, 196, 1322, 618, 254, 659, 62],
+[655, 120, 301, 90, 2368, 108, 226, 99, 229, 875],
+[270, 221, 625, 436, 239, 278, 548, 1158, 320, 90]  
+], names =["South Station - 700 Atlantic Ave.", "TD Garden - Legends Way", "Boston Public Library - 700 Boylston St.", "Boylston St. at Arlington St.", "Back Bay / South End Station", "Charles Circle - Charles St. at Cambridge St.", "Kenmore Sq / Comm Ave", "Beacon St / Mass Ave", "Lewis Wharf - Atlantic Ave.", "Newbury St / Hereford St"];
 var chord = d3.layout.chord()
     .padding(.05)
     .sortSubgroups(d3.descending)
@@ -90,7 +87,9 @@ svg.append("g").selectAll("path")
     .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius))
     .on("mouseover", fade(.1))
     .on("mouseout", fade(1));
-      
+ 
+ 
+
 var ticks = svg.append("g").selectAll("g")
     .data(chord.groups)
   .enter().append("g").selectAll("g")
@@ -123,6 +122,32 @@ svg.append("g")
     .attr("d", d3.svg.chord().radius(innerRadius))
     .style("fill", function(d) { return fill(d.target.index); })
     .style("opacity", 1);
+var arc = d3.svg.arc()
+    .innerRadius(innerRadius )
+    .outerRadius(outerRadius);
+
+ var g = svg.selectAll("g.group")
+      .data(chord.groups)
+    .enter().append("svg:g")
+      .attr("class", "group")
+      .on("mouseover", fade(.02))
+      .on("mouseout", fade(.80));
+
+  g.append("svg:path")
+      .style("stroke", function(d) { return fill(d.index); })
+      .style("fill", function(d) { return fill(d.index); })
+      .attr("d", arc);
+
+  g.append("svg:text")
+      .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
+      .attr("dy", ".35em")
+      .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+      .attr("transform", function(d) {
+        return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+            + "translate(" + (innerRadius - 26) + ")"
+            + (d.angle > Math.PI ? "rotate(180)" : "");
+      })
+      .text(function(d) { return names[d.index]; });
 
 // Returns an array of tick angles and labels, given a group.
 function groupTicks(d) {
