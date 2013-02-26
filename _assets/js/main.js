@@ -30,7 +30,7 @@
               }
             },
             hc : {
-              createChart : function() {
+              createChart : function( seriesOptions ) {
                 var chart = new Highcharts.StockChart({
                     chart: {
                         renderTo: 'highstock'
@@ -210,7 +210,7 @@
                    };
                   seriesCounter++;
                   if (seriesCounter == names.length) {
-                    react.dataviz.hc.createChart();
+                    react.dataviz.hc.createChart( seriesOptions );
                   }
                 });
               });
@@ -233,6 +233,15 @@
               $.get("../data/simple-trips.json", function(data){
                 var count = 0,
                 len = data.length;
+                /*
+                use this!
+                  var indices = [];
+                  var idx = array.indexOf(element);
+                  while (idx != -1) {
+                      indices.push(idx);
+                      idx = array.indexOf(element, idx + 1);
+                  }
+                 */
                 for (var i = 0; i < len; i++){
                    if (i === 0){
                      count++;    
