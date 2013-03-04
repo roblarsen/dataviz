@@ -14,7 +14,9 @@ window.requestAnimFrame = (function(){
 var ctx = new Canvas("spectrum"),
     context,
     source,
-    analyser;
+    analyser,
+    buffer,
+    volumeNode;
     function init(file){
         if (typeof AudioContext == "function") {
             context = new AudioContext();
@@ -22,7 +24,7 @@ var ctx = new Canvas("spectrum"),
         else if (typeof webkitAudioContext == "function") {
             context = new webkitAudioContext();
         } else {
-            throw new Error('AudioContext not supported. :(');
+            throw new Error('AudioContext not supported.');
         }
         analyser = context.createAnalyser();
         var request = new XMLHttpRequest();
@@ -35,7 +37,6 @@ var ctx = new Canvas("spectrum"),
         request.send();
     }
     function play(outputsound) {
-        // play the source now
         outputsound.noteOn(context.currentTime);
         startSpectrumAnalysis()
     }
@@ -46,7 +47,7 @@ var ctx = new Canvas("spectrum"),
         source = context.createBufferSource();
         buffer = context.createBuffer(data, true);
         source.buffer = buffer;
-        source.loop = true;
+        source.loop = false;
         volumeNode = context.createGainNode();
         volumeNode.gain.value = 1;
         source.connect(volumeNode);
@@ -74,8 +75,19 @@ var ctx = new Canvas("spectrum"),
   	  }
 }
 //http://www.truesoundtransfers.de/Titellisten/TT3063.htm
-init('../_assets/audio/TT-3063-13.mp3'); 
-
+init('../_assets/audio/IMSLP83569-PMLP82078-03_Bach-Mvt_3.mp3'); 
+/*Vincent DiMartino (Trumpet)
+Performers:
+Saunders, Violin
+Arnold, Flute
+Rennick, Oboe
+Lexington Bach Choir Orchestra
+Publisher Info.:
+Vince DiMartino
+Copyright:
+Creative Commons Attribution 3.0 
+http://imslp.org/wiki/Brandenburg_Concerto_No.2_in_F_major,_BWV_1047_(Bach,_Johann_Sebastian)
+*/
 
 
 })
