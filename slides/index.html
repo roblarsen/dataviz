@@ -185,8 +185,7 @@
           </section>
           <section>
             <h1>It looks like this</h1>
-            <canvas id="circle" width="800" height="300">
-            </canvas>
+            <canvas id="circle" width="800" height="300"></canvas>
           </section>
           <section>
             <h1>Viewing Source</h1>
@@ -254,25 +253,80 @@
           <p>Commercial products, but... awesome. </p>
          </section>
          <section id="highstock">
-          
           <iframe width="100%" height="500" ></iframe>
-
          </section>
          <section>
-         
-         <ul><li>Pluses:
-         <ul><li>Super powerful</li>
-         <li>Well Documented</li>
-         <li>Old IE support via VML</li>
-         </ul>
+           <ul>
+            <li>Pluses:
+              <ul>
+                <li>Super powerful</li>
+                <li>Well Documented</li>
+                <li>Old IE support via VML</li>
+              </ul>
+            </li>
+            <li>Minuses:
+              <ul>
+                <li>Not free</li></ul>
          </li>
-         <li>Minuses:
-         <ul><li>Not free</li></ul>
-         </li>
          </ul>
          
+         </section>
+         <section>
+            <h1>Viewing Source</h1>
+            <pre><code>
+var seriesOptions = [],
+   yAxisOptions = [],
+   seriesCounter = 0,
+   names = ['AAPL', 'BBRY'],
+   colors = Highcharts.getOptions().colors;
+$.each(names, function(i, name) {
+  $.getJSON('../data/'+names[i].toLowerCase()+'.json', function(data) {
+     for (var j = 0, len = data.length; j < len; j++) {
+      data[j][0] = Date.parse( data[j][0] ).getTime();
+    }
+     data = data.reverse();
+    seriesOptions[i] = {
+       name: name,
+       data: data
+    };
+    seriesCounter++;
+    if (seriesCounter == names.length) {
+      createChart( seriesOptions );
+    }
+  });
+});
+function createChart(seriesOptions){
+var chart = new Highcharts.StockChart({
+    chart: {
+        renderTo: 'chart'
+    },
+    yAxis: {
+      labels: {
+        formatter: function() {
+          return (this.value > 0 ? '+' : '') + this.value + '%';
+        }
+      },
+      plotLines: [{
+        value: 0,
+        width: 2,
+        color: 'silver'
+      }]
+    },
+    plotOptions: {
+      series: {
+        compare: 'percent'
+      }
+    },
+    tooltip: {
+      pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+      valueDecimals: 2
+    },
+    series: seriesOptions
+});
+}
+            </code></pre>
+			   </section>
         </section>
-			  </section>
         <section>
           <section>
             <h1>SVG: D3</h1>
@@ -294,6 +348,120 @@
          </li>
          </ul>
         </section>
+        <section>
+          <h1>View Source</h1>
+<pre><code>
+var chord = d3.layout.chord()
+    .padding(.05)
+    .sortSubgroups(d3.descending)
+    .matrix(matrix);
+var width = 900,
+    height = 500,
+    innerRadius = Math.min(width, height) * .35,
+    outerRadius = innerRadius * 1.1;
+
+var fill = d3.scale.ordinal()
+             .domain(d3.range(4))
+             .range(["#336699", "#99ccff", "#6699cc", "#0066cc"]);
+
+var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+svg.append("g").selectAll("path")
+   .data(chord.groups)
+   .enter().append("path")
+   .style("fill", function(d) { return fill(d.index); })
+   .style("stroke", function(d) { return fill(d.index); })
+   .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius))
+   .on("mouseover", fade(.1))
+   .on("mouseout", fade(1));
+ 
+ 
+
+var ticks = svg.append("g").selectAll("g")
+               .data(chord.groups)
+               .enter().append("g").selectAll("g")
+               .data(groupTicks)
+               .enter().append("g")
+               .attr("transform", function(d) {
+                 return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+                    + "translate(" + outerRadius + ",0)";
+                });
+
+ticks.append("line")
+     .attr("x1", 1)
+     .attr("y1", 0)
+     .attr("x2", 5)
+     .attr("y2", 0)
+     .style("stroke", "#000");
+
+ticks.append("text")
+     .attr("x", 8)
+     .attr("dy", ".35em")
+     .attr("transform", function(d) { return d.angle > Math.PI ? "rotate(180)translate(-16)" : null; })
+     .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+     .text(function(d) { return d.label; });
+
+svg.append("g")
+   .attr("class", "chord")
+   .selectAll("path")
+   .data(chord.chords)
+   .enter().append("path")
+   .attr("d", d3.svg.chord().radius(innerRadius))
+   .style("fill", function(d) { return fill(d.target.index); })
+   .style("opacity", 1);
+var arc = d3.svg.arc()
+            .innerRadius(innerRadius )
+             .outerRadius(outerRadius);
+
+ var g = svg.selectAll("g.group")
+            .data(chord.groups)
+            .enter().append("svg:g")
+            .attr("class", "group")
+            .on("mouseover", fade(.02))
+            .on("mouseout", fade(.80));
+
+  g.append("svg:path")
+   .style("stroke", function(d) { return fill(d.index); })
+   .style("fill", function(d) { return fill(d.index); })
+   .attr("d", arc);
+
+  g.append("svg:text")
+   .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
+   .attr("dy", ".35em")
+   .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+   .attr("transform", function(d) {
+    return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+        + "translate(" + (innerRadius + 26) + ")"
+        + (d.angle > Math.PI ? "rotate(180)" : "");
+   })
+   .text(function(d) { return names[d.index]; });
+
+function groupTicks(d) {
+  var k = (d.endAngle - d.startAngle) / d.value;
+  return d3.range(0, d.value, 1000).map(function(v, i) {
+    return {
+      angle: v * k + d.startAngle,
+      label: i % 5 ? null : v / 1000 + "k"
+    };
+  });
+}
+
+// Returns an event handler for fading a given chord group.
+function fade(opacity) {
+  return function(g, i) {
+    svg.selectAll(".chord path")
+        .filter(function(d) { return d.source.index != i && d.target.index != i; })
+      .transition()
+        .style("opacity", opacity);
+  };
+}
+                
+</code></pre>
+        </section>
         </section>
         <section>
           <section>
@@ -301,9 +469,32 @@
             <blockquote cite="http://raphaeljs.com/">Raphaël is a small JavaScript library that should simplify your work with vector graphics on the web. If you want to create your own specific chart or image crop and rotate widget, for example, you can achieve it simply and easily with this library.</blockquote>
          </section>
          <section id="raphael">
-<iframe  width="100%" height="500" ></iframe>
-<small>http://www.flickr.com/photos/platform3/26950293/</small>
+          <iframe  width="100%" height="500" ></iframe>
+          <small>http://www.flickr.com/photos/stintje/6071017772/</small>
          </section>
+         <section>
+          <ul>
+            <li>Pluses:
+              <ul>
+                <li>Fun, intuitive API</li>
+                <li>built-in OLD IE support</li>
+                <li>Lower Level API</li>
+              </ul>
+            </li>
+            <li>Minuses:
+              <ul>
+                <li>Lower Level API</li>
+
+                <li>Hopefully not dead, just resting:<br>
+                  <img src="img/raphaelcomhistory.png" width="400" height="88" alt="raphael history"></li>
+              </ul>
+            </li>
+         </ul>
+       </section>
+       <section>
+          <h1>View Source</h1>
+          
+        </section>
         </section>
         <section>
            <h1>SVG: Other Libraries</h1>
@@ -320,6 +511,10 @@
          <section id="canvasjs">
           <iframe  width="100%" height="500" ></iframe>
          </section>
+         <section>
+          <h1>View Source</h1>
+          
+        </section>
        </section>
          <section>
           <section>
@@ -328,6 +523,10 @@
          </section>
          <section>
          </section>
+         <section>
+          <h1>View Source</h1>
+          
+        </section>
         </section>
       </div>
 		</div>
