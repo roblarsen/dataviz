@@ -105,7 +105,10 @@ textarea {
   pointer-events: none;
 }
 
-
+#d3 svg {
+  margin:auto;
+    display:block;
+}
 
 
 

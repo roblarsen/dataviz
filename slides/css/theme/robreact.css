@@ -205,3 +205,6 @@ body {
   font-family : Consolas, Inconsolata, "Courier New", Courier, monospace;
 }
 
+.reveal dt{
+  font-size:1.5em;
+}
