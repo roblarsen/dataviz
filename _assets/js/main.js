@@ -85,7 +85,7 @@
             },
             d3 : {
               init: function(){
-                console.log("d3");
+                
                 var stations,
                     totals = [],
                     topTen = [],
@@ -187,6 +187,7 @@
                 });
               },
               drawChord : function( matrix, names) {
+                //based on http://bl.ocks.org/mbostock/4062006 and other D3 based examples
                 var chord = d3.layout.chord()
                     .padding(.05)
                     .sortSubgroups(d3.descending)
@@ -325,6 +326,9 @@
                 climb("The Badger 1986 48.00", 4800, "#000", {x:100,y:180});
               }
             },
+            canvasjs : {
+
+            },
             _init : function(){
             
               if ($(".reveal").length){
@@ -344,6 +348,11 @@
                       $(event.currentSlide)
                         .find("iframe")
                         .attr("src","../demo/canvasjs.html"); 
+                      break;
+                   case "canvas":
+                      $(event.currentSlide)
+                        .find("iframe")
+                        .attr("src","../demo/canvas.html"); 
                       break;
                    case "highstock":
                       $(event.currentSlide)
@@ -370,7 +379,6 @@
             react.dataviz.util.support("canvas");
           }
             if (document.body.id=="d3"){
-              console.log("d3")
               react.dataviz.d3.init();
 
             } else if (document.body.id=="hc"){

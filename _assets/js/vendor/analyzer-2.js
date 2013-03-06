@@ -1,17 +1,8 @@
 $(function(){
-window.requestAnimFrame = (function(){
-    return  window.requestAnimationFrame       || 
-            window.webkitRequestAnimationFrame || 
-            window.mozRequestAnimationFrame    || 
-            window.oRequestAnimationFrame      || 
-            window.msRequestAnimationFrame     || 
-            function(callback, element){
-              window.setTimeout(callback, 1000 / 60);
-            };
-  })();
+
 //http://www.binaura.net/stc/fp/?x=entry:entry120901-200844
 
-var ctx = document.getElementById("spectrum").getContext("2d"),
+var ctx = new Canvas("spectrum"),
     context,
     source,
     analyser,
@@ -62,20 +53,26 @@ var ctx = document.getElementById("spectrum").getContext("2d"),
       requestAnimationFrame(startSpectrumAnalysis);           
   	}
     function draw(data) {
-      ctx.clearRect(0,0,900,300);
+      ctx.reset();
       var len = data.length,
           width = 900/len,
-          gradient;
-          gradient = ctx.createLinearGradient(0, 0, 0, 300);
-          gradient.addColorStop(".5", "#003366");
-          gradient.addColorStop("1.0", "#ccff00");
-          ctx.fillStyle = gradient;
-      for (var i=0; i<len; i++) {
-          ctx.fillRect(i,300,width,-data[i]);    
+          fill; 
+      for (var i=5; i<len; i = i + 10) {
+        var dataLen = data[i];
+            for (var j = 5; j < dataLen; j = j+10){
+              fill = "rgb("+j+","+(255-j)+",255)";
+              ctx.fillCircle({
+                x : i,
+                y : 300 - j,
+                radius : 4,
+                fillStyle : fill
+              });
+            }
+                
   	  }
 }
 //http://www.truesoundtransfers.de/Titellisten/TT3063.htm
-init('../_assets/audio/TT-3063-13.mp3'); 
+init('../_assets/audio/IMSLP83569-PMLP82078-03_Bach-Mvt_3.mp3'); 
 /*Vincent DiMartino (Trumpet)
 Performers:
 Saunders, Violin

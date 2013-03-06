@@ -281,7 +281,7 @@ var seriesOptions = [],
    colors = Highcharts.getOptions().colors;
 $.each(names, function(i, name) {
   $.getJSON('../data/'+names[i].toLowerCase()+'.json', function(data) {
-     for (var j = 0, len = data.length; j < len; j++) {
+     for (var j = 0, len = data.length; j &lt; len; j++) {
       data[j][0] = Date.parse( data[j][0] ).getTime();
     }
      data = data.reverse();
@@ -493,7 +493,32 @@ function fade(opacity) {
        </section>
        <section>
           <h1>View Source</h1>
-          
+          <pre><code>
+var paper = Raphael(0, 0, 900, 550);
+var alpe = paper.path("M71.5,538.641l29.937-15.665l30.633-14.271l30.981-16.014 l31.329-14.968l30.633-12.88l30.981-10.791l29.937-10.443l32.026-12.184l29.936-11.835l30.285-11.488l30.633-10.442l30.981-12.88 l29.937-11.488l30.633-13.924l30.285-10.792L562.672,335l29.937-11.835l31.329-9.747l29.937-12.88l32.374-11.487l30.285-12.879  l30.285-11.835l29.938-12.184l29.937-11.836l31.678-10.095L868.307,225h13.576  L886,538 L71.5,538")
+    .attr('fill','url(../slides/img/alpe.jpg)');
+
+function climb( name, time, hex, endpos){
+  var rider = paper.text(10, 10, name)
+       .attr("fill", hex)
+       .attr("font-size", "14px");
+  rider.animateAlong({
+    path: "M71.5,538.641l29.937-15.665l30.633-14.271l30.981-16.014 l31.329-14.968l30.633-12.88l30.981-10.791l29.937-10.443l32.026-12.184l29.936-11.835l30.285-11.488l30.633-10.442l30.981-12.88 l29.937-11.488l30.633-13.924l30.285-10.792L562.672,335l29.937-11.835l31.329-9.747l29.937-12.88l32.374-11.487l30.285-12.879  l30.285-11.835l29.938-12.184l29.937-11.836l31.678-10.095L868.307,225h13.576",
+    rotate: false,
+    duration: time,
+    easing: 'ease-out',
+    debug: false
+    },function(){ rider.animate({x:endpos.x,y:endpos.y}, 1000)
+  });
+}
+
+climb("Pantani 1997 37.35", 3735, "#06c", {x:100,y:30});
+climb("Lance 2004 37.36", 3736, "#cc0", {x:100,y:60});
+climb("Sastre 2008 39.31", 3931, "#c00", {x:100,y:90}); 
+climb("Sanchez 2011 41.21", 4121, "#c00", {x:100,y:120});
+climb("Coppi 1952 45.22", 4522, "#06c", {x:100,y:150});
+climb("The Badger 1986 48.00", 4800, "#000", {x:100,y:180});
+          </code></pre>
         </section>
         </section>
         <section>
@@ -502,6 +527,49 @@ function fade(opacity) {
              <li><a href="http://svgjs.com/">SVG.js</a></li>
            </ul>
          </section>
+        <section>
+          <section>
+            <h1>Canvas: Core Canvas </h1>
+           <blockquote cite="http://www.w3.org/TR/2dcontext2/#drawing-rectangles-to-the-canvas">This specification defines the 2D Context, Level 2 for the HTML canvas element. The 2D Context provides objects, methods, and properties to draw and manipulate graphics on a canvas drawing surface.</blockquote>
+         </section>
+         <section id="canvas">
+          <iframe  width="100%" height="500" ></iframe>
+         </section>
+
+        <section>
+          <ul>
+            <li>Pluses:
+              <ul>
+                <li>Not a library</li>
+                <li>So. Much. Power</li>
+              </ul>
+            </li>
+            <li>Minuses:
+              <ul>
+                <li>Lower level API</li>
+              </ul>
+            </li>
+         </ul>
+        </section>
+        <section>
+          <h1>View Source</h1>
+          <pre><code>
+function draw(data) {
+  ctx.fillRect(0,0,900,300);
+  var len = data.length,
+      width = 900/len,
+      gradient;
+      gradient = ctx.createLinearGradient(0, 0, 0, 300);
+      gradient.addColorStop(".5", "#003366");
+      gradient.addColorStop("1.0", "#ccff00");
+      ctx.fillStyle = gradient;
+  for (var i=0; i&lt;len; i++) {
+      ctx.fillRect(i,300,width,-data[i]);    
+  }
+}   
+</code></pre>
+        </section>
+       </section>
          <section>
           <section>
             <h1>Canvas: Canvas.JS</h1>
@@ -511,17 +579,54 @@ function fade(opacity) {
          <section id="canvasjs">
           <iframe  width="100%" height="500" ></iframe>
          </section>
+          <section>
+          <ul>
+            <li>Pluses:
+              <ul>
+                <li>Familiar API</li>
+                <li>Tiny (4k gzipped)</li>
+                <li>It's got a really nice personality</li>
+                <li>Chaining</li>
+              </ul>
+            </li>
+            <li>Minuses:
+              <ul>
+                <li>Lower level API</li>
+              </ul>
+            </li>
+         </ul>
+        </section>
          <section>
           <h1>View Source</h1>
-          
+          <pre><code>
+function draw(data) {
+  ctx.reset();
+  var len = data.length,
+      width = 900/len,
+      fill; 
+  for (var i=0; i&lt;len; i = i + 10) {
+    var dataLen = data[i];
+      for (var j = 0; j &lt; dataLen; j = j+10){
+        fill = "rgb("+j+","+(255-j)+",255)";
+        ctx.fillCircle({
+          x : i,
+          y : 300 - j,
+          radius : 4,
+          fillStyle : fill
+        });
+      }      
+   }
+}       
+</code></pre>
         </section>
+       
        </section>
          <section>
           <section>
-            <h1>Canvas: Processing</h1>
-            <blockquote cite="http://processingjs.org/">Processing.js is the sister project of the popular Processing visual programming language, designed for the web. Processing.js makes your data visualizations, digital art, interactive animations, educational graphs, video games, etc. work using web standards and without any plug-ins. You write code using the Processing language, include it in your web page, and Processing.js does the rest. It's not magic, but almost.</blockquote>
+            <h1>Canvas: JavaSCript InfoVis Toolkit</h1>
+            <blockquote cite="http://philogb.github.com/jit/">The JavaScript InfoVis Toolkit provides tools for creating Interactive Data Visualizations for the Web.</blockquote>
          </section>
-         <section>
+         <section id="jit">
          </section>
          <section>
           <h1>View Source</h1>
