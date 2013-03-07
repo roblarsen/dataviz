@@ -359,6 +359,11 @@
                         .find("iframe")
                         .attr("src","../demo/highstock.html"); 
                       break;    
+                   case "jit":
+                      $(event.currentSlide)
+                        .find("iframe")
+                        .attr("src","../demo/jit.html"); 
+                      break;    
                    default:
                       $(event.previousSlide)
                         .find("iframe")

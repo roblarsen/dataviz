@@ -114,9 +114,27 @@ textarea {
 #spectrum {
 display:block;
 margin: auto;
-border:1px solid green;
+background : #000;
 }
 
+
+#infovis {
+display:block;
+margin: auto;
+background : #FF9;
+height:600px;
+width:600px;
+}
+#update {
+display:block;
+margin:auto;
+width:600px;  
+}
+.tip-title, .tip-text{
+padding:10px;
+background:#F0C;
+color:#fff;
+ }
 
 
 

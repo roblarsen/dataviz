@@ -627,10 +627,92 @@ function draw(data) {
             <blockquote cite="http://philogb.github.com/jit/">The JavaScript InfoVis Toolkit provides tools for creating Interactive Data Visualizations for the Web.</blockquote>
          </section>
          <section id="jit">
+         
+          <iframe  width="100%" height="500" ></iframe>
          </section>
+          <section>
+          <ul>
+            <li>Pluses:
+              <ul>
+                <li>Strong foundation</li>
+                <li>Straightforward API</li>
+              </ul>
+            </li>
+            <li>Minuses:
+              <ul>
+                <li>Out of the box visualizations are skeletal. </li>
+              </ul>
+            </li>
+         </ul>
+        </section>
          <section>
           <h1>View Source</h1>
-          
+          <pre><code>
+icicle = new $jit.Icicle({
+    injectInto: 'infovis',
+    animate: animate,
+    offset: 1,
+    cushion: false,
+    constrained: true,
+    levelsToShow: 4,
+    Tips: {
+      enable: true,
+      type: 'Native',
+      offsetX: 20,
+      offsetY: 20,
+      onShow: function(tip, node){
+        var count = 0;
+        node.eachSubnode(function(){
+          count++;
+        });
+        tip.innerHTML = &quot;&lt;div class=\&quot;tip-title\&quot;&gt;&lt;b&gt;Name:&lt;/b&gt; &quot;
+            + node.name + &quot;&lt;/div&gt;&lt;div class=\&quot;tip-text\&quot;&gt;&quot; + count
+            + &quot; children&lt;/div&gt;&quot;;
+      }
+    },
+    Events: {
+      enable: true,
+      onClick: function(node){
+        if (node) {
+          icicle.tips.hide();
+          icicle.enter(node);
+        }
+      },
+      onRightClick: function(){
+        icicle.tips.hide();
+        icicle.out();
+      }
+    },
+    Label: {
+      type: labelType, // &quot;Native&quot; or &quot;HTML&quot;
+      color: '#fff',
+      style: 'bold',
+      size: 12
+    },
+    onCreateLabel: function(domElement, node){
+      domElement.innerHTML = node.name;
+      var style = domElement.style;
+      style.fontSize = '0.9em';
+      style.display = '';
+      style.cursor = 'pointer';
+      style.color = '#fff';
+      style.overflow = 'hidden';
+    },
+    onPlaceLabel: function(domElement, node){
+      var style = domElement.style, width = node.getData('width'), height = node
+          .getData('height');
+      if (width &lt; 7 || height &lt; 7) {
+        style.display = 'none';
+      } else {
+        style.display = '';
+        style.width = width + 'px';
+        style.height = height + 'px';
+      }
+    }
+  });
+  icicle.loadJSON(json);
+  icicle.refresh();
+          </code></pre>
         </section>
         </section>
       </div>

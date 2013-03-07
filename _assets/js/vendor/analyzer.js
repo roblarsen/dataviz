@@ -67,8 +67,9 @@ var ctx = document.getElementById("spectrum").getContext("2d"),
           width = 900/len,
           gradient;
           gradient = ctx.createLinearGradient(0, 0, 0, 300);
-          gradient.addColorStop(".5", "#003366");
-          gradient.addColorStop("1.0", "#ccff00");
+          gradient.addColorStop(".5", "#FFE600");
+          gradient.addColorStop(".75", "#FFD700");
+          gradient.addColorStop("1.0", "#FF6600");
           ctx.fillStyle = gradient;
       for (var i=0; i<len; i++) {
           ctx.fillRect(i,300,width,-data[i]);    
