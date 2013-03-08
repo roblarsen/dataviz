@@ -6,13 +6,6 @@
 		
  <link rel="stylesheet" href="../_assets/css/normalize.css">
         <link rel="stylesheet" href="../_assets/css/main.css">	
-        <style>
-        #infovis {
-height:600px;
-width:600px;
-
-        }	
-        </style>
 	</head>
 <body onload="init();">
 
@@ -1261,7 +1254,7 @@ function init(){
     cushion: false,
     // do not show all levels at once
     constrained: true,
-    levelsToShow: 4,
+    levelsToShow: 3,
     // enable tips
     Tips: {
       enable: true,
@@ -1279,7 +1272,7 @@ function init(){
           count++;
         });
         // add tooltip info
-        tip.innerHTML = "<div class=\"tip-title\"><b>Name:</b> "
+        tip.innerHTML = "<div style='background:#003366;color:#fff'><b>Name:</b> "
             + node.name + "</div><div class=\"tip-text\">" + count
             + " children</div>";
       }
