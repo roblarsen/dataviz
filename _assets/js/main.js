@@ -363,7 +363,12 @@
                       $(event.currentSlide)
                         .find("iframe")
                         .attr("src","../demo/jit.html"); 
-                      break;    
+                      break;   
+                   case "gm":
+                      $(event.currentSlide)
+                        .find("iframe")
+                        .attr("src","../demo/hubway/src/index.html"); 
+                      break;      
                    default:
                       $(event.previousSlide)
                         .find("iframe")
