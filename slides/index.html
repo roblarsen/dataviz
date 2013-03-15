@@ -63,8 +63,8 @@
 						<ul>
 						  <li>Making web sites since 1997</li>
 						  <li>HTML + CSS + JavaScript as my day job since 1999</li>
-						  <li><em>Then:</em> agency guy/consultant-- big brands all day (Adidas, Motorola, Samsung, etc.)</li>
-              <li><em>Now:</em> I come with with 100% more suits.</li>
+						  <li>Formerly an agency guy/consultant-- big brands all day (Adidas, Motorola, Samsung, etc.)</li>
+              <li>Now I'm the client. I come with with 100% more suits.</li>
 						</ul>
 					</section>
 					<section>
@@ -82,7 +82,7 @@
 					</section>
           	<section>
 						<h1>My Own Experience With These Technologies</h1>
-					  <p>Front end project lead on multiple sites and apps that have used both SVG and Canvas to interesting (and sometimes hair-pulling effect.) I'm a fan of these technologies and a consumer of these libraries with just enough knowledge of how they work to be dangerous. </p>
+					  <p>Front end project lead on multiple sites and apps that have used both SVG and Canvas to interesting (and sometimes hair-pulling) effect. I'm a fan of these technologies and a consumer of these libraries with just enough knowledge of how they work to be dangerous. </p>
 					</section>
 					<section>
 						<h1>Art</h1>
@@ -303,7 +303,7 @@ var chart = new Highcharts.StockChart({
     yAxis: {
       labels: {
         formatter: function() {
-          return (this.value > 0 ? '+' : '') + this.value + '%';
+          return (this.value &gt; 0 ? '+' : '') + this.value + '%';
         }
       },
       plotLines: [{
@@ -318,7 +318,7 @@ var chart = new Highcharts.StockChart({
       }
     },
     tooltip: {
-      pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+      pointFormat: '&lt;span style="color:{series.color}"&gt;{series.name}&lt;/span&gt;: &lt;bv{point.y}&lt;/b&gt; ({point.change}%)&lt;br/&gt;',
       valueDecimals: 2
     },
     series: seriesOptions
@@ -454,7 +454,7 @@ function groupTicks(d) {
 function fade(opacity) {
   return function(g, i) {
     svg.selectAll(".chord path")
-        .filter(function(d) { return d.source.index != i && d.target.index != i; })
+        .filter(function(d) { return d.source.index != i &amp;&amp; d.target.index != i; })
       .transition()
         .style("opacity", opacity);
   };
@@ -470,14 +470,14 @@ function fade(opacity) {
          </section>
          <section id="raphael">
           <iframe  width="100%" height="500" ></iframe>
-          <small>http://www.flickr.com/photos/stintje/6071017772/</small>
+          <small><a href="http://www.flickr.com/photos/stintje/6071017772/">Background photo from stintje on flickr</a></small>
          </section>
          <section>
           <ul>
             <li>Pluses:
               <ul>
                 <li>Fun, intuitive API</li>
-                <li>built-in OLD IE support</li>
+                <li>Built-in OLD IE support</li>
                 <li>Lower Level API</li>
               </ul>
             </li>
@@ -525,6 +525,7 @@ climb("The Badger 1986 48.00", 4800, "#000", {x:100,y:180});
            <h1>SVG: Other Libraries</h1>
            <ul>
              <li><a href="http://svgjs.com/">SVG.js</a></li>
+             <li><a href="http://polymaps.org/">Polymaps</a></li>
            </ul>
          </section>
         <section>
@@ -714,6 +715,16 @@ icicle = new $jit.Icicle({
   icicle.refresh();
           </code></pre>
         </section>
+        <section>
+           <h1>Canvas: Other Libraries</h1>
+           <ul>
+             <li><a href="http://sigmajs.org/">sigma.js</a></li>
+             <li><a href="http://paperjs.org/">paper.js</a></li>
+              <li><a href="http://benpickles.github.com/peity/">Peity</a></li>
+              <li><a href="http://arborjs.org/">arbor.js</a></li>
+              <li><a href="http://www.humblesoftware.com/envision">envision</a></li>
+           </ul>
+         </section>
         </section>
         <section>
           <section>
