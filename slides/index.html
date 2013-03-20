@@ -43,13 +43,14 @@
 					<h1>Data Visualization in the Browser</h1>
 					<h2>Rob Larsen</h2>
 					<h2>DATE</h2>
+          <small><a href="https://github.com/roblarsen/dataviz">Download</a></small>
 				</section>
 				<section>
 					<h1>What we're going to talk about</h1>
 					<ul>
 						<li>About me</li>
-           	<li>Data visualization, SVG &amp; Canvas</li>   
-						<li>Core APIs, Raphael, D3, Highcharts, Jit, and more...</li>
+            <li>SVG &amp; Canvas</li>   
+						<li>Libraries like Raphael, D3, and Highcharts</li>
           </ul>
 				</section>
 				<section>
@@ -61,9 +62,9 @@
 					  <h1>Work</h1>
 						<ul>
 						  <li>I've been making web sites since 1997</li>
-						  <li>I'm primarily focused on HTML, CSS &amp; JavaScript</li>
+						  <li>I've been primarily focused on HTML, CSS &amp; JavaScript that whole time</li>
 						  <li>Formerly an agency guy/consultant. Lots of big brand stuff (Adidas, Motorola, Samsung, etc.)</li>
-              <li>Nowadays I'm the client &amp; I come with with 100% more suits.</li>
+              <li>Nowadays I'm the client &amp; I come with with 100% more suits</li>
 						</ul>
 					</section>
 					<section>
@@ -72,12 +73,12 @@
 					<section class="bio">
 						<h1>Work</h1>
 					  <ul>	
-						  <li>Open source: <a href="https://github.com/h5bp/ant-build-script">H5BP Ant Build Script</a>, <a href="https://github.com/roblarsen/CanvasJS">CanvasJS</a> and more (like this presentation.) <a ref="https://github.com/roblarsen">I'm roblarsen on Github</a> </li>
-					    <li><a href="https://twitter.com/robreact">@robreact</a> on Twitter</li>
-              <li>Blog @ <a href="http://HTMLCSSJavaScript.com">htmlcssjavascript.com</a></li>
+						  <li>I'm <a ref="https://github.com/roblarsen">roblarsen</a> on Github</li>
+					    <li>I'm <a href="https://twitter.com/robreact">@robreact</a> on Twitter</li>
+              <li>I have a blog @ <a href="http://HTMLCSSJavaScript.com">htmlcssjavascript.com</a></li>
 					    <li>I wrote this book. It just came out. </li>
 					  </ul>
-   <img src="img/beginning-html-and-css.jpg" alt="an image of Rob Larsen's Beginning HTML and CSS" width="178" height="225" />
+   <a href="http://www.amazon.com/gp/product/1118340183/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=1118340183&linkCode=as2&tag=drunkenfistcom"><img src="img/beginning-html-and-css.jpg" alt="an image of Rob Larsen's Beginning HTML and CSS" width="178" height="225" /></a>
                       
 					</section>
           <section>
@@ -108,15 +109,14 @@
         <section>
           <section>
             <h1>Scalable Vector Graphics (SVG)</h1>
-            <h2 class="fragment fadien">It just rolls off the tongue.</h2>
           </section>
           <section>
-            <p>SVG has had a long and strange journey to the world of "emerging technologies."'" SVG was actually defined in 1999, so it’s not exactly the new kid on the block.</p>
+            <p>SVG has had a long and strange journey to the world of "emerging technologies." SVG was actually defined in 1999, so it’s not exactly the new kid on the block.</p>
             <p>Still, it took a long while to catch on, so I don't get bent out of shape when people lump it in with "HTML5 and Friends." </p>
           </section>
           <section>
-            <p>Vector graphics mixed up with XML.</p>
-            <p>When created in the context of an HTML document SVG elements are just slightly funky DOM elements. That means properties are stored as part of the regular DOM and access to individual elements is available using traditional DOM access methods like <code>document.geElementById</code> and <code>document.getElementsByTagName</code>. </p><p>It can also be styled with CSS.</p>
+            <p>SVG is vector graphics mixed up with XML.</p>
+            <p>When created in the context of an HTML document SVG elements are funky DOM elements. That means properties are stored as part of the regular DOM and access to individual elements is available using traditional DOM access methods like <code>document.geElementById</code> and <code>document.getElementsByTagName</code> (or, if you only speak jQuery <code>$()</code>)</p><p>It can also be styled with CSS.</p>
           </section>
           <section>
           	<p>SVG can also be output from a vector based drawing program and used as the <code>src</code> of an <code>&lt;img&gt;</code> element or as the background of an element as defined by CSS. </p>
@@ -173,7 +173,7 @@
             <p>The canvas element provides a scriptable interface for drawing two-dimensional images in the browser. Think... dynamic PNGs. Even without full browser support on the desktop, developers have embraced canvas fully. </p>
           </section>
           <section>
-            <p>It's an extremely low level API. This means you can sometimes do more work but you have complete, pixel level control (<em>cue diabolical laughter</em>).  It's been used for everything from high traffic visualizations to game engines, a popular system for delivering custom fonts, and a port of the Processing programming language into JavaScript.</p>
+            <p>It's an extremely low level API. This means you ofen have to do a bit of work but you have complete, pixel level control (<em>cue diabolical laughter</em>).</p>
           </section>
           <section>
             <h1>It looks like this</h1>
@@ -212,21 +212,21 @@
           </section>
           <section>
           	<h1>At a High Level</h1>
-            <p>Generally... Go SVG when dealing with a limited number of elements, interactivity and limited animation requirements. It's more familiar to the average front end engineer and it's much easier to implement in an accessible way.</p>
+            <p>Generally... Go SVG when dealing with a limited number of elements and limited animation requirements and higher interacivity needs. It's more familiar to the average front end engineer and it's much easier to implement in an accessible way.</p>
           </section>
           <section>
-            <p>Canvas is better for applications that require intense animation, real-time interaction and/or <strong>many</strong> more elements. SVG elements are DOM elements so thousands of them is kind of scary. Thousands of "elements" in the canvas is still just the one element being manipulated.</p>
+            <p>Canvas is better for applications that require intense animation, real-time interaction and/or <strong>many</strong> more elements. SVG elements are DOM elements so thousands of them is kind of scary. Thousands of "elements" in the canvas is still just the one element being manipulated pixel by pixel.</p>
           </section>
           <section>
-            <p>Of course, things can bog down with Canvas too.</p>
+            <p>Of course, things can bog down with Canvas too- it just won't be because you've got a MEGADOM.</p>
           </section>
           <section>
           <h1>Scaling matters</h1>
-          <p>If different resolutions and form factors are the kind of thing that keeps you up at night, make nice with SVG. SVG is like a miracle cure for what ails you. </p>
+          <p>One important note: If different resolutions and form factors are the kind of thing that keeps you up at night, make nice with SVG. SVG is like a miracle cure for what ails you. Canvas is bitmapped. Bitmaps don't scale. Vector scales all day. </p>
           </section>
           <section>
           <h1>Your Mileage May Vary</h1>
-            <p>This issue could be a whole presentation all by itself. In lieu of that, here are a couple of articles which cover this question in greater depth:</p>
+            <p>This issue could be a whole presentation all by itself. It's nuanced. To help, here are a couple of articles which cover this question in greater depth:</p>
             <ul>
               <li><a href="http://msdn.microsoft.com/en-us/library/ie/gg193983(v=vs.85).aspx">How To Choose Between SVG and Canvas</a></li>
               <li><a href="http://html5center.sourceforge.net/How-to-Choose-Between-Canvas-and-SVG-for-your-Site">How to Choose Between Canvas and SVG for your Site</a></li>
@@ -235,7 +235,7 @@
         </section>
         <section>
           <h1>In Practice</h1>
-          <p>These are the tools and approaches I've used over the past few years and can speak about with some authority. While these aren't the only solutions to these problems, these are ones that have been successful for me.</p>
+          <p>What follows are are the tools and approaches I've used on projects over the past few years and can speak about with some authority. While these aren't the only solutions to these problems, these are ones that have been successful for me.</p>
         </section>
         <section>
           <section>
@@ -735,10 +735,7 @@ icicle = new $jit.Icicle({
             <h1>Bonus: Google Maps</h1>
           </section>
           <section>
-            <blockquote cite="https://developers.google.com/maps/documentation/javascript/">
-              <p>The Google Maps Javascript API lets you embed Google Maps in your own web pages. Version 3 of this API is especially designed to be faster and more applicable to mobile devices, as well as traditional desktop browser applications.</p>
-
-<p>The API provides a number of utilities for manipulating maps (just like on the http://maps.google.com web page) and adding content to the map through a variety of services, allowing you to create robust maps applications on your website.</p>
+            <blockquote cite="https://developers.google.com/maps/documentation/javascript/">The Google Maps Javascript API lets you embed Google Maps in your own web pages. Version 3 of this API is especially designed to be faster and more applicable to mobile devices, as well as traditional desktop browser applications.
             </blockquote>
           </section>
           <section>
