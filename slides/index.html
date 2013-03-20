@@ -215,18 +215,18 @@
             <p>Generally... Go SVG when dealing with a limited number of elements, interactivity and limited animation requirements. It's more familiar to the average front end engineer and it's much easier to implement in an accessible way.</p>
           </section>
           <section>
-            <p>Canvas is better for applications that require better animation, real-time interaction and/or <strong>many</strong> more elements. SVG elements are DOM elements so thousands of them is kind of scary. Thousands of "elements" in the canvas is still just the one element being manipulated.</p>
+            <p>Canvas is better for applications that require intense animation, real-time interaction and/or <strong>many</strong> more elements. SVG elements are DOM elements so thousands of them is kind of scary. Thousands of "elements" in the canvas is still just the one element being manipulated.</p>
           </section>
           <section>
             <p>Of course, things can bog down with Canvas too.</p>
           </section>
           <section>
-          <h1>Also- Scaling matters</h1>
+          <h1>Scaling matters</h1>
           <p>If different resolutions and form factors are the kind of thing that keeps you up at night, make nice with SVG. SVG is like a miracle cure for what ails you. </p>
           </section>
           <section>
           <h1>Your Mileage May Vary</h1>
-            <p>This issue could be a whole presentation all by itself. In lieu of that, here are a couple of articles which cover this question in depth:</p>
+            <p>This issue could be a whole presentation all by itself. In lieu of that, here are a couple of articles which cover this question in greater depth:</p>
             <ul>
               <li><a href="http://msdn.microsoft.com/en-us/library/ie/gg193983(v=vs.85).aspx">How To Choose Between SVG and Canvas</a></li>
               <li><a href="http://html5center.sourceforge.net/How-to-Choose-Between-Canvas-and-SVG-for-your-Site">How to Choose Between Canvas and SVG for your Site</a></li>
@@ -235,7 +235,7 @@
         </section>
         <section>
           <h1>In Practice</h1>
-          <p>These are the tools and approaches I've used over the past few years and can speak about with some authority.</p>
+          <p>These are the tools and approaches I've used over the past few years and can speak about with some authority. While these aren't the only solutions to these problems, these are ones that have been successful for me.</p>
         </section>
         <section>
           <section>
@@ -260,6 +260,7 @@
                 <li>Super powerful</li>
                 <li>Well Documented</li>
                 <li>Old IE support via VML</li>
+                <li>Rock solid</li>
               </ul>
             </li>
             <li>Minuses:
@@ -585,7 +586,7 @@ function draw(data) {
           <ul>
             <li>Pluses:
               <ul>
-                <li>Familiar API enhanced</li>
+                <li>Familiar API, just enhanced</li>
                 <li>Tiny (4k gzipped)</li>
                 <li>It's got a really nice personality</li>
                 <li>Chaining</li>
@@ -593,7 +594,7 @@ function draw(data) {
             </li>
             <li>Minuses:
               <ul>
-                <li>Young</li>
+                <li>Full of youthful exuberance</li>
                 <li>Remains low level</li>
               </ul>
             </li>
@@ -746,6 +747,9 @@ icicle = new $jit.Icicle({
            <section id="gm">
          
           <iframe  width="100%" height="500" ></iframe>
+         </section>
+          <section>
+           <img src="img/hubway-static.png" width="100%">
          </section>
           <section>
           <ul>
