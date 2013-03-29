@@ -42,7 +42,7 @@
 				<section>
 					<h1>Data Visualization in the Browser</h1>
 					<h2>Rob Larsen</h2>
-					<h2>DATE</h2>
+					<h2>2013.4.1</h2>
           <small><a href="https://github.com/roblarsen/dataviz">Download</a></small>
 				</section>
 				<section>
@@ -85,13 +85,19 @@
 						<h1>Art</h1>
 					  <img src="img/wall-at-central-square.jpg" width="700" height="294"/>
             <p><a href="http://www.drunkenfist.com">DrunkenFist.com</a> and (coming soon) <a href="http://javaplusplusplus.com">Java+++</a></p>
+            <aside class="notes">
+             You can visit JavaPlusPlusPlus.com now. It's just not published. Also, bonus point if you know the reference. 
+           </aside>
 					</section>
 				</section>
 				<section>
 					<h1>Data Visualization</h1>
 				  <a href="http://www.flickr.com/photos/andreasmb/3100291750/" title="Visualization Examples  by Andreas_MB, on Flickr"><img src="http://farm4.staticflickr.com/3064/3100291750_8623c332f9.jpg" width="500" height="333" alt="Visualization Examples "></a>	
 				  <small>Rhymes with crufty. <a href="http://www.flickr.com/photos/andreasmb/3100291750/">Photo from Andreas_MB on Flickr</a></small>
-		    </section>
+		       <aside class="notes">
+            Anyone been to one of the Eddward Tufte talks? 
+          </aside>
+        </section>
         <section>
           <h1>Basically</h1>
         </section>
@@ -130,6 +136,9 @@
           	<img src="img/HTML5-logo.svg" width="20%">
           	<img src="img/HTML5-logo.svg" width="25%">
           	<img src="img/HTML5-logo.svg" width="100%">
+              <aside class="notes">
+               And on and on until you've scaled up to the size of the side of a building. 
+              </aside>
           </section>	
           <section>
             <h1>It looks like this</h1>
@@ -138,6 +147,7 @@
               xmlns="http://www.w3.org/2000/svg">
               <circle cx="100" cy="100" r="75" fill="#fe57a1"/>
             </svg>
+
           </section>
           <section>
             <h1>Viewing Source</h1>
@@ -148,6 +158,9 @@
     &lt;circle cx=&quot;100&quot; cy=&quot;100&quot; r=&quot;75&quot; fill=&quot;#fe57a1&quot;/&gt;<br>          
 &lt;/svg&gt;
             </pre></code>
+            <aside class="notes">
+              As you can see it's  XML and the definition of the different properties controls the display of the circle element. 
+            </aside>
           </section>
           <section>
             <h1>It can also look like this</h1>
@@ -158,6 +171,9 @@
             <pre><code>
 &lt;img src="img/circle.svg"&gt;
             </pre></code>
+            <aside class="notes">
+              Everyone knows how that works.  
+            </aside>
           </section>
           <section>
             <h1>Support</h1>
@@ -174,7 +190,7 @@
             <p>The canvas element provides a scriptable interface for drawing two-dimensional images in the browser. Think... dynamic PNGs. Even without full browser support on the desktop, developers have embraced canvas fully. </p>
           </section>
           <section>
-            <p>It's an extremely low level API. This means you ofen have to do a bit of work but you have complete, pixel level control (<em>cue diabolical laughter</em>).</p>
+            <p>It's an extremely low level API. This means you often have to do a bit of work but you have complete, pixel level control.</p>
           </section>
           <section>
             <h1>It looks like this</h1>
@@ -195,8 +211,8 @@
             </code></pre>
           </section>
           <section>
-            <h1>Did I say low level?</h1>
-            <h2>I sure did. Obviously, <code>arc</code> is all you need when you have <code>Math.PI*2</code> :) </h2>
+            <h1>Did I say low level API?</h1>
+            <h2>I sure did. <code>arc</code> is all you need when you have <code>Math.PI*2</code></h2>
             <pre><code>
             ctx.arc(400, 150, 75, 0, Math.PI*2, true);
             </code></pre>
@@ -213,7 +229,7 @@
           </section>
           <section>
           	<h1>At a High Level</h1>
-            <p>Generally... Go SVG when dealing with a limited number of elements and limited animation requirements and higher interacivity needs. It's more familiar to the average front end engineer and it's much easier to implement in an accessible way.</p>
+            <p>Generally... Go SVG when dealing with a limited number of elements and limited animation requirements and higher interactivity needs. It's more familiar to the average front end engineer and it's much easier to implement in an accessible way.</p>
           </section>
           <section>
             <p>Canvas is better for applications that require intense animation, real-time interaction and/or <strong>many</strong> more elements. SVG elements are DOM elements so thousands of them is kind of scary. Thousands of "elements" in the canvas is still just the one element being manipulated pixel by pixel.</p>
@@ -239,17 +255,26 @@
           <p>What follows are are the tools and approaches I've used on projects over the past few years and can speak about with some authority. While these aren't the only solutions to these problems, these are ones that have been successful for me.</p>
         </section>
         <section>
+          <h1>Focus</h1>
+          <p>The focus here is the intersection between ease of use, browser compatibility and power.</p>
+        </section>
+        <section>
           <section>
             <h1>SVG: Highcharts</h1>
             <blockquote cite="http://www.highcharts.com/">Highcharts is a charting library written in pure JavaScript, offering intuitive, interactive charts to your web site or web application. Highcharts currently supports line, spline, area, areaspline, column, bar, pie, scatter, angular gauges, arearange, areasplinerange, columnrange and polar chart types.</blockquote>
+            <aside class="notes">
+              This is what they say.  
+            </aside>                        
          </section>
          <section>
             <h1>SVG: Highstock</h1>      
             <blockquote cite="http://www.highcharts.com/">Highstock lets you create stock or general timeline charts in pure JavaScript, including sophisticated navigation options like a small navigator series, preset date ranges, date picker, scrolling and panning.</blockquote>
-         
+            <aside class="notes">
+              This is what they say.  
+            </aside>            
          </section>
          <section>
-          <p>Commercial products, but... awesome. </p>
+          <p>These are commercial products, but they're really great. </p>
          </section>
          <section id="highstock">
           <iframe width="100%" height="500" ></iframe>
