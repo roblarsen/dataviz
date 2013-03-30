@@ -92,7 +92,7 @@
 				</section>
 				<section>
 					<h1>Data Visualization</h1>
-				  <a href="http://www.flickr.com/photos/andreasmb/3100291750/" title="Visualization Examples  by Andreas_MB, on Flickr"><img src="http://farm4.staticflickr.com/3064/3100291750_8623c332f9.jpg" width="500" height="333" alt="Visualization Examples "></a>	
+				  <a href="http://www.flickr.com/photos/andreasmb/3100291750/" title="Visualization Examples  by Andreas_MB, on Flickr"><img src="img/3100291750_8623c332f9.jpg" width="500" height="333" alt="Visualization Examples "></a>	
 				  <small>Rhymes with crufty. <a href="http://www.flickr.com/photos/andreasmb/3100291750/">Photo from Andreas_MB on Flickr</a></small>
 		       <aside class="notes">
             Anyone been to one of the Eddward Tufte talks? 
@@ -230,6 +230,7 @@
           <section>
           	<h1>At a High Level</h1>
             <p>Generally... Go SVG when dealing with a limited number of elements, limited animation requirements and higher interactivity needs. It's more familiar to the average front end engineer and it's much easier to implement in an accessible way.</p>
+            <p>Two big SVG libraries are also polyfilled by default (Raphaël and Highcharts.) That's super cool. </p>
           </section>
           <section>
             <p>Canvas is better for applications that require intense animation, real-time interaction and/or <strong>many</strong> more elements. SVG elements are DOM elements so thousands of them is kind of scary. Thousands of "elements" in the canvas is still just the one element being manipulated pixel by pixel.</p>
@@ -252,7 +253,7 @@
         </section>
         <section>
           <h1>In Practice</h1>
-          <p>What follows are are the tools and approaches I've used on projects over the past few years and can speak about with some authority. While these aren't the only solutions to these problems, these are ones that have been successful for me.</p>
+          <p>What follows are the tools and approaches I've used on projects over the past few years and can speak about with some authority. While these aren't the only solutions to these problems, these are ones that have been successful for me.</p>
         </section>
         <section>
           <h1>Focus</h1>
@@ -275,6 +276,7 @@
          </section>
          <section>
           <p>These are commercial products, but they're really great. </p>
+          <p>I almost always have a <strong>budget</strong>. So for me, any free solution would have to be insanely good.</p>
          </section>
          <section id="highstock">
           <iframe width="100%" height="500" ></iframe>
@@ -356,6 +358,9 @@ var chart = new Highcharts.StockChart({
           <section>
             <h1>SVG: D3</h1>
             <blockquote cite="http://d3js.org/">D3.js is a JavaScript library for manipulating documents based on data. D3 helps you bring data to life using HTML, SVG and CSS. D3’s emphasis on web standards gives you the full capabilities of modern browsers without tying yourself to a proprietary framework, combining powerful visualization components and a data-driven approach to DOM manipulation.</blockquote>
+         <aside class="notes">
+           As an aside, I've only used D3 on one project, but we liked it so much we built dual versions of the visualization in D3 and Raphaël, at significant cost, in order to present the D3 version to capable browsers.     
+         </aside>
          </section>
          <section id="d3">
 <iframe width="100%" height="500" ></iframe>
@@ -558,8 +563,8 @@ climb( "The Badger 1986 48.00", 4800, "#000", {x:100,y:180} );
         <section>
            <h1>SVG: Other Libraries</h1>
            <ul>
-             <li><a href="http://svgjs.com/">SVG.js</a> "a lightweight JavaScript library for manipulating and animating svg using an uncluttered syntax"</li>
-             <li><a href="http://polymaps.org/">Polymaps</a> "a free JavaScript library for making dynamic, interactive maps in modern web browsers."</li>
+             <li><a href="http://svgjs.com/">SVG.js</a> <small>"a lightweight JavaScript library for manipulating and animating svg using an uncluttered syntax"</small></li>
+             <li><a href="http://polymaps.org/">Polymaps</a> <small>"a free JavaScript library for making dynamic, interactive maps in modern web browsers."</small></li>
            </ul>
          </section>
         <section>
@@ -752,13 +757,13 @@ icicle = new $jit.Icicle({
         <section>
            <h1>Canvas: Other Libraries</h1>
            <ul>
-             <li><a href="http://sigmajs.org/">sigma.js</a> "an open-source lightweight JavaScript library to draw graphs, using the HTML canvas"</li>
-             <li><a href="http://paperjs.org/">paper.js</a> "Scriptographer ported to JavaScript and browser, using HTML5 Canvas"</li>
-              <li><a href="http://benpickles.github.com/peity/">Peity</a> "progressive &lt;canvas&gt; piecharts"</li>
-              <li><a href="http://arborjs.org/">arbor.js</a> "a graph visualization library using web workers and jQuery"</li>
-              <li><a href="http://www.humblesoftware.com/envision">envision</a> "a library for creating fast, dynamic and interactive HTML5 visualizations.</li>
-              <li><a href="http://canvasquery.com/">CanvasQuery</a> "use HTML5 Canvas with jQuery syntax"</li>
-              <li><a href="http://processingjs.org">Processing.js</a> "the sister project of the popular Processing visual programming language"</li>
+             <li><a href="http://sigmajs.org/">sigma.js</a> <small>"an open-source lightweight JavaScript library to draw graphs, using the HTML canvas"</small></li>
+             <li><a href="http://paperjs.org/">paper.js</a> <small>"Scriptographer ported to JavaScript and browser, using HTML5 Canvas"</small></li>
+              <li><a href="http://benpickles.github.com/peity/">Peity</a> <small>"progressive &lt;canvas&gt; piecharts"</small></li>
+              <li><a href="http://arborjs.org/">arbor.js</a> <small>"a graph visualization library using web workers and jQuery"</small></li>
+              <li><a href="http://www.humblesoftware.com/envision">envision</a> <small>"a library for creating fast, dynamic and interactive HTML5 visualizations.</small></li>
+              <li><a href="http://canvasquery.com/">CanvasQuery</a> <small>"use HTML5 Canvas with jQuery syntax"</small></li>
+              <li><a href="http://processingjs.org">Processing.js</a> <small>"the sister project of the popular Processing visual programming language"</small></li>
            </ul>
          </section>
         </section>
