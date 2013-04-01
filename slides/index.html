@@ -43,7 +43,7 @@
 					<h1>Data Visualization in the Browser</h1>
 					<h2>Rob Larsen</h2>
 					<h2>2013.4.1</h2>
-          <small><a href="https://github.com/roblarsen/dataviz">Download</a></small>
+          <small><a href="https://github.com/roblarsen/dataviz">Download</a> (https://github.com/roblarsen/dataviz)</small>
 				</section>
 				<section>
 					<h1>What we're going to talk about</h1>
@@ -64,12 +64,13 @@
 						  <li>I've been making web sites since 1997</li>
 						  <li>I've been primarily focused on HTML, CSS &amp; JavaScript that whole time</li>
 						  <li>Formerly an agency guy/consultant. Lots of big brand stuff (Adidas, Motorola, Samsung, etc.)</li>
-              <li>Nowadays I'm the client &amp; I come with with 100% more suits</li>
+              <li>Nowadays I'm the client &amp; I come with 100% more suits</li>
 						</ul>
 					</section>
 					<section>
 						<h1>Seriously, <strong class="fragment fade-in">suits</strong></h1>
-					</section>
+					  <img src="img/suits.jpg" alt="Rob Larsen" class="fragment fade-in" >
+          </section>
 					<section class="bio">
 						<h1>Work</h1>
 					  <ul>	
@@ -91,7 +92,7 @@
 					</section>
 				</section>
 				<section>
-					<h1>Data Visualization</h1>
+					<h1>Data Visualization?</h1>
 				  <a href="http://www.flickr.com/photos/andreasmb/3100291750/" title="Visualization Examples  by Andreas_MB, on Flickr"><img src="img/3100291750_8623c332f9.jpg" width="500" height="333" alt="Visualization Examples "></a>	
 				  <small>Rhymes with crufty. <a href="http://www.flickr.com/photos/andreasmb/3100291750/">Photo from Andreas_MB on Flickr</a></small>
 		       <aside class="notes">
@@ -118,18 +119,21 @@
             <h1>Scalable Vector Graphics (SVG)</h1>
           </section>
           <section>
+            <h1>SVG as a "new" thing</h1>
             <p>SVG has had a long and strange journey to the world of "emerging technologies." SVG was actually defined in 1999, so it’s not exactly the new kid on the block.</p>
             <p>Still, it took a long while to catch on, so I don't get bent out of shape when people lump it in with "HTML5 and Friends." </p>
           </section>
           <section>
+            <h1>What is SVG</h1>
             <p>SVG is vector graphics mixed up with XML.</p>
             <p>When created in the context of an HTML document SVG elements are funky DOM elements-- properties are stored as part of the regular DOM and access to individual elements is available using traditional DOM access methods like <code>document.geElementById</code> and <code>document.getElementsByTagName</code> (or, if you only speak jQuery <code>$()</code>)</p><p>It can also be styled with CSS.</p>
           </section>
           <section>
+            <h1>SVG is better than sliced bread</h1>
           	<p>SVG can also be output from a vector based drawing program and used as the <code>src</code> of an <code>&lt;img&gt;</code> element or as the background of an element as defined by CSS. </p>
           </section>
           <section>
-          	<p>Vector means: it scales!</p>
+            <h1>Vector means: it scales!</h1>
           	<img src="img/HTML5-logo.svg" width="5%">
           	<img src="img/HTML5-logo.svg" width="10%">
           	<img src="img/HTML5-logo.svg" width="15%">
@@ -186,10 +190,12 @@
             <h1>Canvas</h1>
           </section>
           <section>
+            <h1>What's Canvas?</h1>
             <p>The canvas element and associated API started life as an Apple extension to HTML. From there it blossomed into one of the early stars of the HTML5 era.</p> 
             <p>The canvas element provides a scriptable interface for drawing two-dimensional images in the browser. Think... dynamic PNGs. Even without full browser support on the desktop, developers have embraced canvas fully. </p>
           </section>
           <section>
+            <h1>Stay in control</h1>
             <p>It's an extremely low level API. This means you often have to do a bit of work but you have complete, pixel level control.</p>
           </section>
           <section>
@@ -212,10 +218,11 @@
           </section>
           <section>
             <h1>Did I say low level API?</h1>
-            <h2>I sure did. <code>arc</code> is all you need when you have <code>Math.PI*2</code></h2>
+            <h2>I sure did. Everyone knows <code>arc</code> is all you need when you have <code>Math.PI*2</code></h2>
             <pre><code>
             ctx.arc( 400, 150, 75, 0, Math.PI*2, true );
             </code></pre>
+            <small>Not the friendliest API. It's "center x", "center y", "radius", "start angle, in radians", "end angle, in radians" and "clockwise, as a Boolean"</small>
           </section>
           <section>
             <h1>Support</h1>
@@ -229,18 +236,20 @@
           </section>
           <section>
           	<h1>At a High Level</h1>
-            <p>Generally... Go SVG when dealing with a limited number of elements, limited animation requirements and higher interactivity needs. It's more familiar to the average front end engineer and it's much easier to implement in an accessible way.</p>
+            <p>Generally... Go SVG when dealing with a limited number of elements, lower animation requirements and higher interactivity needs. Because it's got traditional access methods and traditional event registration, it's more familiar to the average front end engineer. It's much easier to implement in an accessible way.</p>
             <p>Two big SVG libraries are also polyfilled by default (Raphaël and Highcharts.) That's super cool. </p>
           </section>
           <section>
+            <h1>Canvas Strengths</h1>
             <p>Canvas is better for applications that require intense animation, real-time interaction and/or <strong>many</strong> more elements. SVG elements are DOM elements so thousands of them is kind of scary. Thousands of "elements" in the canvas is still just the one element being manipulated pixel by pixel.</p>
           </section>
           <section>
+            <h1>megaDOM</h1>
             <p>Of course, things can bog down with Canvas too- it just won't be because you've got a MEGADOM.</p>
           </section>
           <section>
           <h1>Scaling matters</h1>
-          <p>One important note: If different resolutions and form factors are the kind of thing that keeps you up at night, make nice with SVG. SVG is like a miracle cure for what ails you. Canvas is bitmapped. Bitmaps don't scale. Vector scales all day. </p>
+          <p>One important note: If different resolutions and form factors are the kind of thing that keeps you up at night, make nice with SVG. SVG is like a miracle cure for what ails you. Canvas is bitmapped. SVG is vector. Bitmaps don't scale. Vector scales all day. </p>
           </section>
           <section>
           <h1>Your Mileage May Vary</h1>
@@ -275,13 +284,15 @@
             </aside>            
          </section>
          <section>
+          <h1>Usually, I work on well funded projects, so...</h1>
           <p>These are commercial products, but they're really great. </p>
-          <p>I almost always have a <strong>budget</strong>. So for me, any free solution would have to be insanely good.</p>
+          <p>I almost always have a <strong>budget</strong>. So for me, any free solution would have to be insanely good. YMMV.</p>
          </section>
          <section id="highstock">
           <iframe width="100%" height="500" ></iframe>
          </section>
          <section>
+          <h1>SVG:Highcharts +-</h1>
            <ul>
             <li>Pluses:
               <ul>
@@ -367,6 +378,8 @@ var chart = new Highcharts.StockChart({
 <small> data from the <a href="http://hubwaydatachallenge.org/">Hubway Data Visualization Challenge</a></small>
         </section>
         <section>
+          <h1>SVG: D3+-</h1>
+            
           <ul>
             <li>Pluses:
               <ul>
@@ -381,6 +394,23 @@ var chart = new Highcharts.StockChart({
               </ul>
             </li>
           </ul>
+        </section>
+        <section>
+          <h1>View Source</h1>
+          <pre><code>
+[
+  [2689, 508, 1170, 189, 1007, 187,  745,  248,  263,  2311], 
+  [1064, 121, 830,  323, 2473, 393,  453,  312,  533,  599], 
+  [506,  296, 813,  530, 988,  540,  1936, 578,  747,  268], 
+  [706,  311, 1568, 526, 1273, 371,  618,  694,  481,  227], 
+  [178,  701, 277,  176, 663,  227,  379,  284,  330,  111], 
+  [550,  270, 548,  445, 196,  769,  868,  317,  1477, 195], 
+  [344,  141, 468,  955, 172,  346,  502,  388,  415,  97], 
+  [333,  207, 455,  545, 196,  1322, 618,  254,  659,  62], 
+  [655,  120, 301,  90,  2368, 108,  226,  99,   229,  875], 
+  [270,  221, 625,  436, 239,  278,  548,  1158, 320,  90]
+]
+          </pre></code>
         </section>
         <section>
           <h1>View Source</h1>
@@ -513,6 +543,7 @@ function fade( opacity ) {
             <small><a href="http://www.flickr.com/photos/stintje/6071017772/">Background photo from stintje on flickr</a></small>
           </section>
          <section>
+          <h1>SVG: Raphaël +-</h1>
           <ul>
             <li>Pluses:
               <ul>
@@ -577,6 +608,7 @@ climb( "The Badger 1986 48.00", 4800, "#000", {x:100,y:180} );
          </section>
 
         <section>
+          <h1>Canvas: Core Canvas +-</h1>
           <ul>
             <li>Pluses:
               <ul>
@@ -611,14 +643,16 @@ function draw( data ) {
        </section>
          <section>
           <section>
-            <h1>Canvas: Canvas.JS</h1>
-            <blockquote cite="http://roblarsen.github.com/CanvasJS/">CanvasJS is a small helper library for the canvas 2d API. The goal is to extend and enhance the basic API while still remaining familiar</blockquote>
-            <small>I'm partially to blame</small>
+            <h1>Canvas: Canvas.js</h1>
+            <blockquote cite="http://roblarsen.github.com/CanvasJS/">CanvasJS is a small helper library for the Canvas 2d API. The goal is to extend and enhance the basic API while still remaining familiar</blockquote>
+            <small>I'm partially to blame (also, yay <a href="http://twitter.com/bobholt">@bobholt</a> and <a href="http://twitter.com/marcneuwirth">@marcneuwirth</a>)</small>
          </section>
          <section id="canvasjs">
           <iframe  width="100%" height="500" ></iframe>
          </section>
           <section>
+
+            <h1>Canvas: Canvas.js +- </h1>
           <ul>
             <li>Pluses:
               <ul>
@@ -632,6 +666,7 @@ function draw( data ) {
               <ul>
                 <li>Full of youthful exuberance</li>
                 <li>Remains low level</li>
+                <li>Not a fancy game developer tool</li>
               </ul>
             </li>
          </ul>
@@ -670,6 +705,7 @@ function draw(data) {
           <iframe  width="100%" height="500" ></iframe>
          </section>
           <section>
+          <h1>Canvas:JIT +-</h1>
           <ul>
             <li>Pluses:
               <ul>
@@ -776,6 +812,7 @@ icicle = new $jit.Icicle({
             </blockquote>
           </section>
           <section>
+            <h1>About Google Maps</h1>
             <p>The Maps API is already rich, adding a layer of data on top of it opens up a wide range of possibilities</p>
           </section>
            <section id="gm">
@@ -786,6 +823,7 @@ icicle = new $jit.Icicle({
            <img src="img/hubway-static.png" width="100%">
          </section>
           <section>
+          <h1>Google Maps +-</h1>
           <ul>
             <li>Pluses:
               <ul>
@@ -913,9 +951,10 @@ icicle = new $jit.Icicle({
         </section>
         </section>
         <section>
-          <h1>My Columbo Moment (just one more thing)</h1>
+          <h1>My Columbo Moment</h1>
+          <small>just one more thing...</small>
           <h2><a href="http://selection.datavisualization.ch">Datavisualization.ch Selected Tools</a></h2>
-          <p>All these tools, plus more.</p>
+          <p>A list of all these tools, plus more.</p>
         </section>
         <section>
           <h1>Thanks!</h1>

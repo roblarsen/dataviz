@@ -180,8 +180,10 @@
                     tmp[8] = newtotals[9];
                     tmp[9] = newtotals[5]; 
                     matrix[i] = tmp;  
+
                   }
-                
+
+
                 }
                 react.dataviz.d3.drawChord(matrix, names)
                 });
