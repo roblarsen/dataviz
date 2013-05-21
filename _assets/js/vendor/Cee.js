@@ -1,6 +1,7 @@
 /**
- * @license Canvas JavaScript Library v0.1
- * http://roblarsen.github.com/CanvasJS/
+ * @license 
+ * Cee.js Library v0.1
+ * http://roblarsen.github.com/CeeJS/
  *
  * While you're here, visit:
  *
@@ -25,18 +26,18 @@
 (function( window ){
   "use strict";
   var document = window.document;
-  var Canvas = ( function() {
+  var Cee = ( function() {
 
-    // Define a local copy of Canvas
-    var Canvas = function( selector, params ) {
-      return new Canvas.prototype._init( selector );
+    // Define a local copy of Cee
+    var Cee = function( selector, params ) {
+      return new Cee.prototype._init( selector );
     };
 
-    Canvas.prototype = {
+    Cee.prototype = {
 
 /**
  * Creates a new Canvas object
- *  @name CanvasJS
+ *  @name CeeJS
  *  @function
  *  @constructor
  *  @param  {string} selector a string indicating the id of an HTML Canvas element or the name of the Canvas Element to be createed
@@ -1504,13 +1505,13 @@ source: http://msdn.microsoft.com/en-us/library/windows/apps/hh465918.aspx
       }
     };
 
-    Canvas.prototype._init.prototype = Canvas.prototype;
+    Cee.prototype._init.prototype = Cee.prototype;
 
-    return Canvas;
+    return Cee;
   }());
   if (typeof define === 'function' && define.amd) {
-    define(['Canvas'], Canvas);
+    define(['Cee'], Cee);
   } else {
-    window["Canvas"] = Canvas;
+    window["Cee"] = Cee;
   }
 }( window ));
