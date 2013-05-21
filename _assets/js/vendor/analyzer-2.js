@@ -2,7 +2,7 @@ $(function(){
 
 //http://www.binaura.net/stc/fp/?x=entry:entry120901-200844
 
-var ctx = new Canvas("spectrum"),
+var ctx = new Cee("spectrum"),
     context,
     source,
     analyser,

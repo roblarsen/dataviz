@@ -320,15 +320,15 @@
                       debug: false
                    },function(){ rider.animate({x:endpos.x,y:endpos.y}, 1000)});
                 }
-                climb("Pantani 1997 37.35", 3735, "#06c", {x:100,y:30});
-                climb("Lance 2004 37.36", 3736, "#cc0", {x:100,y:60});
-                climb("Sastre 2008 39.31", 3931, "#c00", {x:100,y:90}); 
-                climb("Sanchez 2011 41.21", 4121, "#c00", {x:100,y:120});
-                climb("Coppi 1952 45.22", 4522, "#06c", {x:100,y:150});
-                climb("The Badger 1986 48.00", 4800, "#000", {x:100,y:180});
+                climb("Pantani 1997 37.35", 3735*2, "#06c", {x:100,y:30});
+                climb("Lance 2004 37.36", 3736*2, "#cc0", {x:100,y:60});
+                climb("Sastre 2008 39.31", 3931*2, "#c00", {x:100,y:90}); 
+                climb("Sanchez 2011 41.21", 4121*2, "#c00", {x:100,y:120});
+                climb("Coppi 1952 45.22", 4522*2, "#06c", {x:100,y:150});
+                climb("The Badger 1986 48.00", 4800*2, "#000", {x:100,y:180});
               }
             },
-            canvasjs : {
+            ceejs : {
 
             },
             _init : function(){
@@ -346,10 +346,10 @@
                         .find("iframe")
                         .attr("src","../demo/raphael.html"); 
                       break;
-                   case "canvasjs":
+                   case "ceejs":
                       $(event.currentSlide)
                         .find("iframe")
-                        .attr("src","../demo/canvasjs.html"); 
+                        .attr("src","../demo/ceejs.html"); 
                       break;
                    case "canvas":
                       $(event.currentSlide)
