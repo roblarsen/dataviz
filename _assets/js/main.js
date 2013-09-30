@@ -33,7 +33,7 @@
                 var seriesOptions = [],
                    yAxisOptions = [],
                    seriesCounter = 0,
-                   names = ['AAPL', 'BBRY'],
+                   names = ['LPAA', 'YRBB'],
                    colors = Highcharts.getOptions().colors;
                 $.each(names, function(i, name) {
                   $.getJSON('../data/'+names[i].toLowerCase()+'.json', function(data) {
