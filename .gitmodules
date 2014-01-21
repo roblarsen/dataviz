@@ -1,3 +1,6 @@
 [submodule "demo/hubway"]
 	path = demo/hubway
 	url = https://github.com/roblarsen/Hubway-Data-Visualization.git
+[submodule "comics"]
+	path = comics
+	url = https://github.com/roblarsen/-100k-club.git
