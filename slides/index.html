@@ -177,7 +177,7 @@
           <section>
             <h1>What's Canvas?</h1>
             <p>The canvas element and associated API started life as an Apple extension to HTML. From there it blossomed into one of the early stars of the HTML5 era.</p> 
-            <p>The canvas element provides a scriptable interface for drawing two-dimensional images in the browser. Think... dynamic PNGs. Even without full browser support on the desktop, developers have embraced canvas fully. </p>
+            <p>The canvas element provides a scriptable interface for drawing two-dimensional images in the browser.</p>
           </section>
           <section>
             <h1>Stay in control</h1>
@@ -221,20 +221,18 @@
           </section>
           <section>
           	<h1>At a High Level</h1>
-            <p>Generally... Go SVG when dealing with a limited number of elements, lower animation requirements and higher interactivity needs. Because it's got traditional access methods and traditional event registration, it's more familiar to the average front end engineer. It's much easier to implement in an accessible way.</p>
-            <p>Two big SVG libraries are also polyfilled by default (Raphaël and Highcharts.) That's super cool. </p>
+            <p>Generally... Go SVG when dealing with a limited number of elements, lower animation requirements and higher interactivity needs. Because it's got traditional access methods and traditional event registration, it's more familiar to the average front end engineer. It's easier to implement in an accessible way.</p>
+            <p>Designers can also export SVGs for you to work with out of software like Adobe Illustrator</p>
+            <small>Two big SVG libraries are also polyfilled by default (Raphaël and Highcharts.) That's useful if you have legacy IE requirements. </small>
           </section>
           <section>
             <h1>Canvas Strengths</h1>
             <p>Canvas is better for applications that require intense animation, real-time interaction and/or <strong>many</strong> more elements. SVG elements are DOM elements so thousands of them is kind of scary. Thousands of "elements" in the canvas is still just the one element being manipulated pixel by pixel.</p>
-          </section>
-          <section>
-            <h1>MegaDOM</h1>
-            <p>Of course, things can bog down with Canvas too- it just won't be because you've got a MegaDOM.</p>
+            <p>Of course, things can bog down with Canvas too- it just won't be because you've got a Mega-DOM.</p>
           </section>
           <section>
           <h1>Scaling matters</h1>
-          <p>One important note: If different resolutions and form factors are the kind of thing that keeps you up at night, make nice with SVG. SVG is like a miracle cure for what ails you. Canvas is bitmapped. SVG is vector. Bitmaps don't scale. Vector scales all day. </p>
+            <p>One important note: If different resolutions and form factors are the kind of thing that keeps you up at night, make nice with SVG. Canvas = bitmap. SVG = vector. Bitmaps don't scale. Vector scales all day. </p>
           </section>
           <section>
           <h1>Your Mileage May Vary</h1>
@@ -244,141 +242,32 @@
               <li><a href="http://html5center.sourceforge.net/How-to-Choose-Between-Canvas-and-SVG-for-your-Site">How to Choose Between Canvas and SVG for your Site</a></li>
             </ul>
           </section>
+          <section>
+          <h1>Use what works</h1>
+            <p>Canvas, SVG, HTML elements + CSS animations, Google Maps, etc. It's all good as long as you're telling a story.</p>
+          </section>
+          
         </section>
         <section>
           <h1>In Practice</h1>
-          <p>What follows are the tools and approaches I've used on projects over the past few years and can speak about with some authority. While these aren't the only solutions to these problems, these are ones that have been successful for me.</p>
+          <p>What follows is a cross section of the tools and approaches I've used over the past few years.</p>
         </section>
-        <section>
-          <h1>Focus</h1>
-          <p>The focus here is the intersection between ease of use, browser compatibility and power.</p>
         </section>
         <section>
           <section>
-            <h1>SVG: Highcharts</h1>
-            <blockquote cite="http://www.highcharts.com/">Highcharts is a charting library written in pure JavaScript, offering intuitive, interactive charts to your web site or web application. Highcharts currently supports line, spline, area, areaspline, column, bar, pie, scatter, angular gauges, arearange, areasplinerange, columnrange and polar chart types.</blockquote>
-            <aside class="notes">
-              This is what they say.  
-            </aside>                        
-         </section>
-         <section>
-            <h1>SVG: Highstock</h1>      
-            <blockquote cite="http://www.highcharts.com/">Highstock lets you create stock or general timeline charts in pure JavaScript, including sophisticated navigation options like a small navigator series, preset date ranges, date picker, scrolling and panning.</blockquote>
-            <aside class="notes">
-              This is what they say.  
-            </aside>            
-         </section>
-         <section>
-          <h1>Usually, I work on well funded projects, so...</h1>
-          <p>These are commercial products, but they're really great. </p>
-          <p>I almost always have a <strong>budget</strong>. So for me, any free solution would have to be insanely good. YMMV.</p>
-         </section>
-         <section id="highstock">
-          <iframe width="100%" height="500" ></iframe>
-         </section>
-         <section>
-          <h1>SVG:Highcharts +-</h1>
-           <ul>
-            <li>Pluses:
-              <ul>
-                <li>Super powerful</li>
-                <li>Well Documented</li>
-                <li>Old IE support via VML</li>
-                <li>Rock solid</li>
-              </ul>
-            </li>
-            <li>Minuses:
-              <ul>
-                <li>Not free</li>
-              </ul>
-            </li>
-           </ul>
-         </section>
-         <section>
-            <h1>Viewing Source</h1>
-            <pre><code>
-var seriesOptions = [],
-   yAxisOptions = [],
-   seriesCounter = 0,
-   names = ['AAPL', 'BBRY'],
-   colors = Highcharts.getOptions().colors;
-$.each( names, function( i, name ) {
-  $.getJSON('../data/'+names[i].toLowerCase()+'.json', function( data ) {
-     for (var j = 0, len = data.length; j &lt; len; j++) {
-      data[j][0] = Date.parse( data[j][0] ).getTime();
-    }
-     data = data.reverse();
-    seriesOptions[i] = {
-       name: name,
-       data: data
-    };
-    seriesCounter++;
-    if ( seriesCounter == names.length ) {
-      createChart( seriesOptions );
-    }
-  });
-});
-function createChart( seriesOptions ){
-var chart = new Highcharts.StockChart({
-    chart: {
-        renderTo: 'chart'
-    },
-    yAxis: {
-      labels: {
-        formatter: function() {
-          return (this.value &gt; 0 ? '+' : '') + this.value + '%';
-        }
-      },
-      plotLines: [{
-        value: 0,
-        width: 2,
-        color: 'silver'
-      }]
-    },
-    plotOptions: {
-      series: {
-        compare: 'percent'
-      }
-    },
-    tooltip: {
-      pointFormat: '&lt;span style="color:{series.color}"&gt;{series.name}&lt;/span&gt;: &lt;bv{point.y}&lt;/b&gt; ({point.change}%)&lt;br/&gt;',
-      valueDecimals: 2
-    },
-    series: seriesOptions
-});
-}
-            </code></pre>
-			   </section>
+            <h1>AngularJS and SVG</h1>
+            <p>Working with Angular and SVG is natural. As I've mentioned, SVG elements are just DOM elements, so anything you know how to do with traditional HTML elements you can do with SVG</p>
+          
+          </section>  
         </section>
         <section>
           <section>
-            <h1>SVG: D3</h1>
+            <h1>SVG with D3js</h1>
             <blockquote cite="http://d3js.org/">D3.js is a JavaScript library for manipulating documents based on data. D3 helps you bring data to life using HTML, SVG and CSS. D3’s emphasis on web standards gives you the full capabilities of modern browsers without tying yourself to a proprietary framework, combining powerful visualization components and a data-driven approach to DOM manipulation.</blockquote>
-         <aside class="notes">
-           As an aside, I've only used D3 on one project, but we liked it so much we built dual versions of the visualization in D3 and Raphaël, at significant cost, in order to present the D3 version to capable browsers.     
-         </aside>
          </section>
          <section id="d3">
 <iframe width="100%" height="500" ></iframe>
 <small> data from the <a href="http://hubwaydatachallenge.org/">Hubway Data Visualization Challenge</a></small>
-        </section>
-        <section>
-          <h1>SVG: D3+-</h1>
-            
-          <ul>
-            <li>Pluses:
-              <ul>
-                <li>Super powerful</li>
-                <li>Under active development<br><img src="img/d3comhistory.png" width="400" height="82" alt="d3 history"></li>
-                <li>Many examples</li>
-              </ul>
-            </li>
-            <li>Minuses:
-              <ul>
-                <li>No support for old IE</li>
-              </ul>
-            </li>
-          </ul>
         </section>
         <section>
           <h1>View Source</h1>
@@ -519,64 +408,6 @@ function fade( opacity ) {
           </section>
         </section>
         <section>
-          <section>
-            <h1>SVG: Raphaël</h1>
-            <blockquote cite="http://raphaeljs.com/">Raphaël is a small JavaScript library that should simplify your work with vector graphics on the web. If you want to create your own specific chart or image crop and rotate widget, for example, you can achieve it simply and easily with this library.</blockquote>
-          </section>
-           <section id="raphael">
-            <iframe  width="100%" height="550" ></iframe>
-            <small><a href="http://www.flickr.com/photos/stintje/6071017772/">Background photo from stintje on flickr</a></small>
-          </section>
-         <section>
-          <h1>SVG: Raphaël +-</h1>
-          <ul>
-            <li>Pluses:
-              <ul>
-                <li>Fun, intuitive API</li>
-                <li>Built-in OLD IE support via VML</li>
-                <li>Lower Level API</li>
-              </ul>
-            </li>
-            <li>Minuses:
-              <ul>
-                <li>Lower Level API</li>
-                <li>Hopefully not dead, just resting:<br>
-                  <img src="img/raphaelcomhistory.png" width="400" height="88" alt="raphael history"></li>
-              </ul>
-            </li>
-         </ul>
-       </section>
-       <section>
-          <h1>View Source</h1>
-          <pre><code>
-var paper = Raphael( 0, 0, 900, 550 );
-var alpe = paper.path( "M71.5,538.641l29.937-15.665l30.633-14.271l30.981-16.014 l31.329-14.968l30.633-12.88l30.981-10.791l29.937-10.443l32.026-12.184l29.936-11.835l30.285-11.488l30.633-10.442l30.981-12.88 l29.937-11.488l30.633-13.924l30.285-10.792L562.672,335l29.937-11.835l31.329-9.747l29.937-12.88l32.374-11.487l30.285-12.879  l30.285-11.835l29.938-12.184l29.937-11.836l31.678-10.095L868.307,225h13.576  L886,538 L71.5,538" )
-    .attr( 'fill' , 'url(../slides/img/alpe.jpg)' );
-
-function climb( name, time, hex, endpos ){
-  var rider = paper.text( 10, 10, name )
-                   .attr( "fill", hex )
-                   .attr( "font-size", "14px" );
-  rider.animateAlong({
-    path: "M71.5,538.641l29.937-15.665l30.633-14.271l30.981-16.014 l31.329-14.968l30.633-12.88l30.981-10.791l29.937-10.443l32.026-12.184l29.936-11.835l30.285-11.488l30.633-10.442l30.981-12.88 l29.937-11.488l30.633-13.924l30.285-10.792L562.672,335l29.937-11.835l31.329-9.747l29.937-12.88l32.374-11.487l30.285-12.879  l30.285-11.835l29.938-12.184l29.937-11.836l31.678-10.095L868.307,225h13.576",
-    rotate: false,
-    duration: time,
-    easing: 'ease-out',
-    debug: false
-    },function(){ rider.animate({x:endpos.x,y:endpos.y}, 1000 )
-  });
-}
-
-climb( "Pantani 1997 37.35", 3735, "#06c", {x:100,y:30} );
-climb( "Lance 2004 37.36", 3736, "#cc0", {x:100,y:60} );
-climb( "Sastre 2008 39.31", 3931, "#c00", {x:100,y:90} ); 
-climb( "Sanchez 2011 41.21", 4121, "#c00", {x:100,y:120} );
-climb( "Coppi 1952 45.22", 4522, "#06c", {x:100,y:150} );
-climb( "The Badger 1986 48.00", 4800, "#000", {x:100,y:180} );
-          </code></pre>
-        </section>
-        </section>
-        <section>
            <h1>SVG: Other Libraries</h1>
            <ul>
              <li><a href="http://svgjs.com/">SVG.js</a> <small>"a lightweight JavaScript library for manipulating and animating svg using an uncluttered syntax"</small></li>
@@ -591,23 +422,6 @@ climb( "The Badger 1986 48.00", 4800, "#000", {x:100,y:180} );
          <section id="canvas">
           <iframe  width="100%" height="500" ></iframe>
          </section>
-
-        <section>
-          <h1>Canvas: Core Canvas +-</h1>
-          <ul>
-            <li>Pluses:
-              <ul>
-                <li>Not a library</li>
-                <li>POWERFUL</li>
-              </ul>
-            </li>
-            <li>Minuses:
-              <ul>
-                <li>Lower level API</li>
-              </ul>
-            </li>
-         </ul>
-        </section>
         <section>
           <h1>View Source</h1>
           <pre><code>
@@ -626,155 +440,6 @@ function draw( data ) {
 </code></pre>
         </section>
        </section>
-         <section>
-          <section>
-            <h1>Canvas: Cee.js</h1>
-            <blockquote cite="http://roblarsen.github.com/CeeJS/">Cee.js is a small helper library for the Canvas 2d API. The goal is to extend and enhance the basic API while still remaining familiar</blockquote>
-            <small>I'm partially to blame (also, yay <a href="http://twitter.com/bobholt">@bobholt</a> and <a href="http://twitter.com/marcneuwirth">@marcneuwirth</a>)</small>
-         </section>
-         <section id="ceejs">
-          <iframe  width="100%" height="500" ></iframe>
-         </section>
-          <section>
-
-            <h1>Canvas: Cee.js +- </h1>
-          <ul>
-            <li>Pluses:
-              <ul>
-                <li>Familiar API, just enhanced</li>
-                <li>Tiny (4k gzipped)</li>
-                <li>It's got a really nice personality</li>
-                <li>Chaining</li>
-              </ul>
-            </li>
-            <li>Minuses:
-              <ul>
-                <li>Full of youthful exuberance</li>
-                <li>Remains low level</li>
-                <li>Not a fancy game developer tool</li>
-              </ul>
-            </li>
-         </ul>
-        </section>
-         <section>
-          <h1>View Source</h1>
-          <pre><code>
-function draw(data) {
-  ctx.reset();
-  var len = data.length,
-      width = 900/len,
-      fill; 
-  for ( var i=0; i&lt;len; i = i + 10 ) {
-    var dataLen = data[i];
-      for ( var j = 0; j &lt; dataLen; j = j+10 ){
-        fill = "rgb("+j+","+(255-j)+",255)";
-        ctx.fillCircle({
-          x : i,
-          y : 300 - j,
-          radius : 4,
-          fillStyle : fill
-        });
-      }      
-   }
-}       
-</code></pre>
-        </section>
-       
-       </section>
-         <section>
-          <section>
-            <h1>Canvas: JavaScript InfoVis Toolkit</h1>
-            <blockquote cite="http://philogb.github.com/jit/">The JavaScript InfoVis Toolkit provides tools for creating Interactive Data Visualizations for the Web.</blockquote>
-         </section>
-         <section id="jit">
-          <iframe  width="100%" height="500" ></iframe>
-         </section>
-          <section>
-          <h1>Canvas:JIT +-</h1>
-          <ul>
-            <li>Pluses:
-              <ul>
-                <li>Strong foundation</li>
-                <li>Straightforward API</li>
-              </ul>
-            </li>
-            <li>Minuses:
-              <ul>
-                <li>Out of the box visualizations are skeletal</li>
-              </ul>
-            </li>
-         </ul>
-        </section>
-         <section>
-          <h1>View Source</h1>
-          <pre><code>
-icicle = new $jit.Icicle({
-    injectInto : 'infovis',
-    animate : animate,
-    offset : 1,
-    cushion : false,
-    constrained : true,
-    levelsToShow : 4,
-    Tips : {
-      enable : true,
-      type : 'Native',
-      offsetX : 20,
-      offsetY : 20,
-      onShow : function(tip, node){
-        var count = 0;
-        node.eachSubnode(function(){
-          count++;
-        });
-        tip.innerHTML = &quot;&lt;div class=\&quot;tip-title\&quot;&gt;&lt;b&gt;Name:&lt;/b&gt; &quot;
-            + node.name + &quot;&lt;/div&gt;&lt;div class=\&quot;tip-text\&quot;&gt;&quot; + count
-            + &quot; children&lt;/div&gt;&quot;;
-      }
-    },
-    Events: {
-      enable : true,
-      onClick : function( node ){
-        if ( node ) {
-          icicle.tips.hide();
-          icicle.enter( node );
-        }
-      },
-      onRightClick: function(){
-        icicle.tips.hide();
-        icicle.out();
-      }
-    },
-    Label: {
-      type : labelType, 
-      color : '#fff',
-      style : 'bold',
-      size : 12
-    },
-    onCreateLabel: function(domElement, node){
-      domElement.innerHTML = node.name;
-      var style = domElement.style;
-      style.fontSize = '0.9em';
-      style.display = '';
-      style.cursor = 'pointer';
-      style.color = '#fff';
-      style.overflow = 'hidden';
-    },
-    onPlaceLabel: function(domElement, node){
-      var style = domElement.style, 
-          width = node.getData( 'width' ),
-          height = node.getData( 'height' );
-      if ( width &lt; 7 || height &lt; 7 ) {
-        style.display = 'none';
-      } else {
-        style.display = '';
-        style.width = width + 'px';
-        style.height = height + 'px';
-      }
-    }
-  });
-  icicle.loadJSON( json );
-  icicle.refresh();
-          </code></pre>
-        </section>
         <section>
            <h1>Canvas: Other Libraries</h1>
            <ul>
@@ -790,7 +455,7 @@ icicle = new $jit.Icicle({
         </section>
         <section>
           <section>
-            <h1>Bonus: Google Maps</h1>
+            <h1>Google Maps</h1>
           </section>
           <section>
             <h1>Google Maps</h1>
