@@ -87,7 +87,6 @@
               
                }    
                 for (i = 0; i < buildmatrix.length; i++){
-                  console.log(buildmatrix[i][0]);
                   var newtotals = [];
                   count = 0;
                   for (var j = 0, len = buildmatrix[i][1].length; j <len; j++ ) {
@@ -209,8 +208,7 @@
                       .style("stroke", function(d) { return fill(d.index); })
                       .style("fill", function(d) { return fill(d.index); })
                       .attr("d", arc);
-                
-                  g.append("svg:text")
+                 /* g.append("svg:text")
                       .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
                       .attr("dy", ".35em")
                       .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
@@ -218,6 +216,17 @@
                         return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
                             + "translate(" + (innerRadius + 26) + ")"
                             + (d.angle > Math.PI ? "rotate(180)" : "");
+                      })
+                      .text(function(d) { return names[d.index]; });
+                  */
+                  g.append("svg:text")
+                      .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
+                      .attr("dy", ".35em")
+                      .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+                      .attr("transform", function(d) {
+                        var a = Math.sin( d.angle ) * (outerRadius +10),
+                        b = Math.cos( d.angle ) * (outerRadius+30);
+                        return "translate(" +a+","+(-b)+ ")";
                       })
                       .text(function(d) { return names[d.index]; });
                 
