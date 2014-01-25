@@ -271,7 +271,7 @@
                    case "angular":
                       $(event.currentSlide)
                         .find("iframe")
-                        .attr("src","../demo/comics/standalone.html"); 
+                        .attr("src","../demo/100k/standalone.html"); 
                       break;    
                    case "gm":
                       $(event.currentSlide)

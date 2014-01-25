@@ -6,4 +6,7 @@
 	url = https://github.com/roblarsen/-100k-club.git
 [submodule "demo/comics"]
 	path = demo/comics
-	url = https://github.com/roblarsen/itsalljustcomics.com.git
+	url = https://github.com/roblarsen/-100k-club.git
+[submodule "demo/100k"]
+	path = demo/100k
+	url = https://github.com/roblarsen/-100k-club.git
