@@ -4,3 +4,6 @@
 [submodule "comics"]
 	path = comics
 	url = https://github.com/roblarsen/-100k-club.git
+[submodule "demo/comics"]
+	path = demo/comics
+	url = https://github.com/roblarsen/itsalljustcomics.com.git
