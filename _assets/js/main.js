@@ -208,17 +208,6 @@
                       .style("stroke", function(d) { return fill(d.index); })
                       .style("fill", function(d) { return fill(d.index); })
                       .attr("d", arc);
-                 /* g.append("svg:text")
-                      .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
-                      .attr("dy", ".35em")
-                      .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
-                      .attr("transform", function(d) {
-                        return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
-                            + "translate(" + (innerRadius + 26) + ")"
-                            + (d.angle > Math.PI ? "rotate(180)" : "");
-                      })
-                      .text(function(d) { return names[d.index]; });
-                  */
                   g.append("svg:text")
                       .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
                       .attr("dy", ".35em")
