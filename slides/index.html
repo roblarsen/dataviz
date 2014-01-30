@@ -260,6 +260,7 @@
           </section>    
           <section id="angular">
             <iframe width="100%" height="660" scrolling="no"></iframe>
+          <small><a href="http://htmlcssjavascript.com/javascript/i-made-a-scatter-plot-data-visualization-with-angularjs-and-svg-heres-how-i-did-it/">More details on this visualization</small>
           </section>
           <section>
           <h1>View Source</h1>
@@ -450,7 +451,7 @@ angular.module('comicFilters', []).filter('xDate', function () {
   return function (input) {
     if (input !== undefined) {
       var date = input.split("-");
-      var years = 20 - (2013 - date[0]);
+      var years = date[0] - 1993;
       var months = (years * 12) + parseInt(date[1]);
       return 90 + months * 3.3333;
       
