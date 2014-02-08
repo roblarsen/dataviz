@@ -1,83 +1,83 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-		<title>Data Visualization in the Browser</title>
+    <title>Data Visualization in the Browser</title>
 
-		<meta name="description" content="A presentation on browser based data visualization">
-		<meta name="author" content="Rob Larsen">
+    <meta name="description" content="A presentation on browser based data visualization">
+    <meta name="author" content="Rob Larsen">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/robreact.css" id="theme">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/robreact.css" id="theme">
     
-		<link rel="stylesheet" href="css/dataviz.css" id="theme">
+    <link rel="stylesheet" href="css/dataviz.css" id="theme">
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
 
-	<body>
+  <body>
 
-		<div class="reveal">
+    <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
 
-				<section>
-					<h1>Data Visualization in the Browser</h1>
-					<h2>Rob Larsen</h2>
-					<h2>2014.2.13</h2>
+        <section>
+          <h1>Data Visualization in the Browser</h1>
+          <h2>Rob Larsen</h2>
+          <h2>2014.2.13</h2>
           <small><a href="https://github.com/roblarsen/dataviz">Download</a> (https://github.com/roblarsen/dataviz)</small>
           <p><img src="img/logo.png" height="150" width="150"></p>
-				</section>
-				<section>
-					<h1>What's in this Presentation</h1>
-					<ul>
+        </section>
+        <section>
+          <h1>What's in this Presentation</h1>
+          <ul>
             <li>Me (briefly)</li>
             <li>Intro to two technologies: SVG &amp; Canvas</li>   
-						<li>Live examples and code</li>
+            <li>Live examples and code</li>
           </ul>
-				</section>
-				<section>
-  				<section>
-	  				<h1>Me</h1>
-	  				<img src="img/me.jpg" alt="Rob Larsen" width="395" height="395">
-			  	</section>
-				  <section>	
-					  <h1>Work</h1>
-						<ul>
-						  <li>I've been making web sites since 1997</li>
-						  <li>HTML, CSS &amp; JavaScript</li>
-						  <li>I'm <a ref="https://github.com/roblarsen">roblarsen</a> on Github</li>
-					    <li>I'm <a href="https://twitter.com/roblarsenwww">@roblarsenwww</a> (web stuff) and <a href="https://twitter.com/robreact">@robreact</a> (everything else) on Twitter</li>
+        </section>
+        <section>
+          <section>
+            <h1>Me</h1>
+            <img src="img/me.jpg" alt="Rob Larsen" width="395" height="395">
+          </section>
+          <section>  
+            <h1>Work</h1>
+            <ul>
+              <li>I've been making web sites since 1997</li>
+              <li>HTML, CSS &amp; JavaScript</li>
+              <li>I'm <a ref="https://github.com/roblarsen">roblarsen</a> on Github</li>
+              <li>I'm <a href="https://twitter.com/roblarsenwww">@roblarsenwww</a> (web stuff) and <a href="https://twitter.com/robreact">@robreact</a> (everything else) on Twitter</li>
               <li>I have a blog @ <a href="http://HTMLCSSJavaScript.com">htmlcssjavascript.com</a></li>
-					    <li>I write books.</li>
-					  </ul>
+              <li>I write books.</li>
+            </ul>
    <a href="http://www.amazon.com/gp/product/1118340183/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=1118340183&linkCode=as2&tag=drunkenfistcom"><img src="img/beginning-html-and-css.jpg" alt="an image of Rob Larsen's Beginning HTML and CSS" width="178" height="225" /></a> <img src="img/coming-soon.png" alt="an image of Rob Larsen's Beginning HTML and CSS" width="200" height="242" />
                       
-					</section>
-				</section>
-				<section>
-					<h1>Data Visualization?</h1>
-				  <a href="http://www.flickr.com/photos/andreasmb/3100291750/" title="Visualization Examples  by Andreas_MB, on Flickr"><img src="img/3100291750_8623c332f9.jpg" width="500" height="333" alt="Visualization Examples "></a>	
-				  <small><em>Rhymes with crufty.</em> <a href="http://www.flickr.com/photos/andreasmb/3100291750/">Photo from Andreas_MB on Flickr</a></small>
-		       <aside class="notes">
+          </section>
+        </section>
+        <section>
+          <h1>Data Visualization?</h1>
+          <a href="http://www.flickr.com/photos/andreasmb/3100291750/" title="Visualization Examples  by Andreas_MB, on Flickr"><img src="img/3100291750_8623c332f9.jpg" width="500" height="333" alt="Visualization Examples "></a>  
+          <small><em>Rhymes with crufty.</em> <a href="http://www.flickr.com/photos/andreasmb/3100291750/">Photo from Andreas_MB on Flickr</a></small>
+           <aside class="notes">
             Anyone been to one of the Eddward Tufte talks? 
           </aside>
         </section>
@@ -115,17 +115,17 @@
           </section>
           <section>
             <h1>Vector means: it scales!</h1>
-          	<img src="img/HTML5-logo.svg" width="5%">
-          	<img src="img/HTML5-logo.svg" width="10%">
-          	<img src="img/HTML5-logo.svg" width="15%">
-          	<img src="img/HTML5-logo.svg" width="20%">
-          	<img src="img/HTML5-logo.svg" width="25%">
-          	<img src="img/HTML5-logo.svg" width="100%">
+            <img src="img/HTML5-logo.svg" width="5%">
+            <img src="img/HTML5-logo.svg" width="10%">
+            <img src="img/HTML5-logo.svg" width="15%">
+            <img src="img/HTML5-logo.svg" width="20%">
+            <img src="img/HTML5-logo.svg" width="25%">
+            <img src="img/HTML5-logo.svg" width="100%">
           </section>
           <section>
             <p><small class="fragment fade-in">I just solved the responsive images conundrum.</small></p>
           <iframe src="http://www.flickr.com/photos/51581540@N00/7554509718/in/photolist-cvyQxy-i53iKi-bwv6bZ-by4SV6-c6nbUm-bxFqqB-bwv6Ra-bwv6yM-bwv6s8-bwv6Fg-bxEm72-bjKt5U-bxEkCR-bxhski-aEu4Y7-8gkfG4-jhqQqJ-jhqwTt-aFztse-amXWdu-bkiYwN-91z987-8u7ndB-9RvQMt-b5kv9v-cPtBgm-bxEkH6-bjKsG3-7DH753-cPtC3L-cPtCrE-bwuFMa-cPtBG3-bt8N9k-bt8MYc-bt8Ge8-am8oR8-9MYW37-bydSAt-a6XigU-bkiYp9-dRUGib-cbjgFu-cbj1qA-8wU4Rh-cbiGLU-cbiFqU-bkiYtY-7QNmAA-d9EGH4-bXPb6s/player/" width="500" height="333" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen  class="fragment fade-in"></iframe>
-          </section>	
+          </section>  
           <section>
             <h1>It looks like this</h1>
             <svg width="200" height="200"
@@ -196,7 +196,7 @@
           </section>
           <section>
             <h1>It's a low level API</h1>
-            <h2>Everyone knows <code>arc</code> is all you need when you have <code>Math.PI*2</code></h2>
+            <h2>Everyone knows <code>arc</code> is all you need to draw a circle when you have <code>Math.PI*2</code></h2>
             <pre><code>
             ctx.arc( 400, 150, 75, 0, Math.PI*2, true );
             </code></pre>
@@ -209,11 +209,11 @@
           </section> 
         </section>
         <section>
-        	<section>
-        	  <h1>Comparing Canvas &amp; SVG</h1>
+          <section>
+            <h1>Comparing Canvas &amp; SVG</h1>
           </section>
           <section>
-          	<h1>At a High Level</h1>
+            <h1>At a High Level</h1>
             <ul>
               <li>Go SVG when dealing with a limited number of elements, lower animation requirements and higher interactivity needs.</li>
               <li>Canvas is better for applications that require intense animation, real-time interaction and/or <strong>many</strong> more elements.</li>
@@ -248,133 +248,183 @@
           </section>    
           <section id="angular">
             <iframe width="100%" height="660" scrolling="no"></iframe>
-            <small><a href="http://htmlcssjavascript.com/javascript/i-made-a-scatter-plot-data-visualization-with-angularjs-and-svg-heres-how-i-did-it/">More details on this visualization</a></small>
+            <small>Comic Book Sales Over $100,000 from 1993 - 2013. <a href="http://htmlcssjavascript.com/javascript/i-made-a-scatter-plot-data-visualization-with-angularjs-and-svg-heres-how-i-did-it/">More details on this visualization on my blog.</a></small>
           </section>
           <section>
           <h1>View Source</h1>
 <pre><code>
 &lt;div data-ng-app=&quot;comicsApp&quot;&gt;
-  &lt;div data-ng-controller=&quot;chartCtrl&quot;&gt;
-    &lt;svg version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; width=&quot;100%&quot; viewBox=&quot;0 0 980 600&quot; enable-background=&quot;new 0 0 980 600&quot; xml:space=&quot;preserve&quot;&gt;
-      &lt;filter id=&quot;drop-shadow&quot;&gt;
-	      &lt;feGaussianBlur in=&quot;SourceAlpha&quot; stdDeviation=&quot;2&quot; result=&quot;blur&quot;/&gt;
-	      &lt;feOffset in=&quot;blur&quot; dx=&quot;4&quot; dy=&quot;4&quot; result=&quot;offsetBlur&quot;/&gt;
-	      &lt;feMerge&gt;
-		      &lt;feMergeNode in=&quot;offsetBlur&quot;/&gt;
-		      &lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;
-	      &lt;/feMerge&gt;
-      &lt;/filter&gt;
-      &lt;g id=&quot;lines&quot;&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#000000&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;90.828&quot; y1=&quot;-8&quot; x2=&quot;90.828&quot; y2=&quot;579.297&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#B5B5B6&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;579.297&quot; x2=&quot;981.996&quot; y2=&quot;579.297&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#595858&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;734.275&quot; y1=&quot;49.246&quot; x2=&quot;734.275&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#595858&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;895.138&quot; y1=&quot;41&quot; x2=&quot;895.138&quot; y2=&quot;579.051&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#595858&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;573.414&quot; y1=&quot;49.246&quot; x2=&quot;573.414&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#595858&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;412.552&quot; y1=&quot;49.246&quot; x2=&quot;412.552&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#595858&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;251.689&quot; y1=&quot;49.246&quot; x2=&quot;251.689&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;171.259&quot; y1=&quot;49.246&quot; x2=&quot;171.259&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;131.043&quot; y1=&quot;49.246&quot; x2=&quot;131.043&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;211.474&quot; y1=&quot;49.246&quot; x2=&quot;211.474&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;332.121&quot; y1=&quot;49.246&quot; x2=&quot;332.121&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;291.905&quot; y1=&quot;49.246&quot; x2=&quot;291.905&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;372.336&quot; y1=&quot;49.246&quot; x2=&quot;372.336&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;492.982&quot; y1=&quot;49.246&quot; x2=&quot;492.982&quot; y2=&quot;579.968&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;452.767&quot; y1=&quot;49.246&quot; x2=&quot;452.767&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;533.199&quot; y1=&quot;49.246&quot; x2=&quot;533.199&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;653.845&quot; y1=&quot;49.246&quot; x2=&quot;653.845&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;613.629&quot; y1=&quot;49.246&quot; x2=&quot;613.629&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;694.062&quot; y1=&quot;49.246&quot; x2=&quot;694.062&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;814.707&quot; y1=&quot;49.246&quot; x2=&quot;814.707&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;774.49&quot; y1=&quot;49.246&quot; x2=&quot;774.49&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;854.923&quot; y1=&quot;49.246&quot; x2=&quot;854.923&quot; y2=&quot;579.161&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;366.972&quot; x2=&quot;981.996&quot; y2=&quot;366.972&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;473.134&quot; x2=&quot;981.997&quot; y2=&quot;473.134&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#2AA4DD&quot; stroke-width=&quot;3&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;558.064&quot; x2=&quot;981.996&quot; y2=&quot;558.064&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;260.809&quot; x2=&quot;981.996&quot; y2=&quot;260.809&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;154.646&quot; x2=&quot;981.996&quot; y2=&quot;154.646&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;48.483&quot; x2=&quot;981.996&quot; y2=&quot;48.483&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;494.366&quot; x2=&quot;981.998&quot; y2=&quot;494.366&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;536.832&quot; x2=&quot;981.998&quot; y2=&quot;536.832&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;515.6&quot; x2=&quot;981.998&quot; y2=&quot;515.6&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;451.901&quot; x2=&quot;981.998&quot; y2=&quot;451.901&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;430.669&quot; x2=&quot;981.998&quot; y2=&quot;430.669&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;409.437&quot; x2=&quot;981.998&quot; y2=&quot;409.437&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;388.204&quot; x2=&quot;981.999&quot; y2=&quot;388.204&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;303.273&quot; x2=&quot;981.999&quot; y2=&quot;303.273&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;345.738&quot; x2=&quot;981.999&quot; y2=&quot;345.738&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;324.506&quot; x2=&quot;981.999&quot; y2=&quot;324.506&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;282.041&quot; x2=&quot;982&quot; y2=&quot;282.041&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;239.576&quot; x2=&quot;982&quot; y2=&quot;239.576&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;218.343&quot; x2=&quot;982&quot; y2=&quot;218.343&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;197.111&quot; x2=&quot;982&quot; y2=&quot;197.111&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;175.878&quot; x2=&quot;982&quot; y2=&quot;175.878&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;133.413&quot; x2=&quot;982&quot; y2=&quot;133.413&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;112.181&quot; x2=&quot;982&quot; y2=&quot;112.181&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;90.948&quot; x2=&quot;982&quot; y2=&quot;90.948&quot;/&gt;
-          &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;69.715&quot; x2=&quot;982&quot; y2=&quot;69.715&quot;/&gt;
-      &lt;/g&gt;
-      &lt;g id=&quot;text&quot;&gt;
-	      &lt;text x=&quot;10&quot; y=&quot;16&quot;&gt;price in USD&lt;/text&gt;
-	      &lt;text x=&quot;71&quot; y=&quot;574&quot;&gt;$0&lt;/text&gt;
-	      &lt;text x=&quot;480&quot; y=&quot;595&quot;&gt;2003&lt;/text&gt;
-	      &lt;text x=&quot;78&quot; y=&quot;595&quot;&gt;1993&lt;/text&gt;
-	      &lt;text x=&quot;881&quot; y=&quot;595&quot;&gt;2013&lt;/text&gt;
-	      &lt;text x=&quot;25&quot; y=&quot;553&quot;&gt;$100,000&lt;/text&gt;
-	      &lt;text x=&quot;25&quot; y=&quot;468&quot;&gt;$500,000&lt;/text&gt;
-	      &lt;text x=&quot;16&quot; y=&quot;363&quot;&gt;$1,000,000&lt;/text&gt;
-	      &lt;text x=&quot;16&quot; y=&quot;256&quot;&gt;$1,500,000&lt;/text&gt;
-	      &lt;text x=&quot;16&quot; y=&quot;151&quot;&gt;$2,000,000&lt;/text&gt;
-	      &lt;text x=&quot;16&quot; y=&quot;45&quot; &gt;$2,500,000&lt;/text&gt;
-      &lt;/g&gt;
-      &lt;g id=&quot;dynamic&quot;&gt;
-	      &lt;circle  data-ng-repeat=&quot;it in items | filter : venues&quot; 
-			opacity=&quot;0.8&quot; data-ng-attr-fill=&quot;{{colorPicker(it.venue)}}&quot; 
-			data-ng-attr-cx=&quot;{{it.date | xDate}}&quot; 
-			data-ng-mouseover=&quot;updateTooltip(it)&quot; 
-			data-ng-mouseout=&quot;updateTooltip(0)&quot;  
-			data-ng-attr-cy=&quot;{{it.price | yPrice}}&quot; 
-			r=&quot;7&quot; /&gt;
-	      &lt;rect data-ng-show=&quot;tooltip.price&quot; 
-				data-ng-model=&quot;tooltip&quot; 
-				transform=&quot;translate(-55,-100)&quot; 
-				data-ng-attr-x=&quot;{{tooltip.date | xDate}}&quot; 
-				data-ng-attr-y=&quot;{{tooltip.price | yPrice}}&quot; 
-				width=&quot;150&quot; height=&quot;80&quot; fill=&quot;white&quot; 
-				stroke=&quot;&quot;  style=&quot;filter:url(#drop-shadow)&quot; /&gt;
-	      &lt;text data-ng-show=&quot;tooltip.price&quot; 
-				data-ng-model=&quot;tooltip&quot; 
-				transform=&quot;translate(-45,-90)&quot; 
-				data-ng-attr-x=&quot;{{tooltip.date | xDate}}&quot; 
-				data-ng-attr-y=&quot;{{tooltip.price | yPrice}}&quot; &gt;{{tooltip.title}} {{tooltip.issue}}&lt;/text&gt;
-	      &lt;text data-ng-show=&quot;tooltip.price&quot; data-ng-model=&quot;tooltip&quot; transform=&quot;translate(-45,-75)&quot; data-ng-attr-x=&quot;{{tooltip.date | xDate}}&quot; data-ng-attr-y=&quot;{{tooltip.price | yPrice}}&quot; &gt;{{tooltip.pedigree}}{{tooltip.collection}}{{tooltip.provenance}} {{tooltip.grade_src | srcFilter}} {{tooltip.grade}}&lt;/text&gt;
-	      &lt;text data-ng-show=&quot;tooltip.price&quot; data-ng-model=&quot;tooltip&quot; transform=&quot;translate(-45,-60)&quot; data-ng-attr-x=&quot;{{tooltip.date | xDate}}&quot; data-ng-attr-y=&quot;{{tooltip.price | yPrice}}&quot; &gt;{{tooltip.price|currency}}&lt;/text&gt;
-	      &lt;text data-ng-show=&quot;tooltip.price&quot; data-ng-model=&quot;tooltip&quot; transform=&quot;translate(-45,-45)&quot; data-ng-attr-x=&quot;{{tooltip.date | xDate}}&quot; data-ng-attr-y=&quot;{{tooltip.price | yPrice}}&quot; &gt;{{tooltip.date}}&lt;/text&gt;
-	      &lt;text data-ng-show=&quot;tooltip.price&quot; data-ng-model=&quot;tooltip&quot; transform=&quot;translate(-45,-30)&quot; data-ng-attr-x=&quot;{{tooltip.date | xDate}}&quot; data-ng-attr-y=&quot;{{tooltip.price | yPrice}}&quot; &gt;{{tooltip.venue}}&lt;/text&gt;
-      &lt;/g&gt;
-      &lt;g id=&quot;legend&quot;&gt;
-	      &lt;rect x=&quot;125&quot; y=&quot;5&quot; width=&quot;15&quot; height=&quot;15&quot; fill=&quot;#D95B43&quot; 
-				data-ng-mouseover=&quot;venues='comic connect'&quot; 
-				data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
-	      &lt;text x=&quot;145&quot; y=&quot;15&quot; class=&quot;legend&quot;&gt;Comic Connect&lt;/text&gt;
-	      &lt;rect x=&quot;245&quot; y=&quot;5&quot; width=&quot;15&quot; height=&quot;15&quot; fill=&quot;#ECD078&quot; data-ng-mouseover=&quot;venues='heritage'&quot; data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
-	      &lt;text x=&quot;265&quot; y=&quot;15&quot; class=&quot;legend&quot;&gt;Heritage&lt;/text&gt;
-	      &lt;rect x=&quot;325&quot; y=&quot;5&quot; width=&quot;15&quot; height=&quot;15&quot; fill=&quot;#C02942&quot; data-ng-mouseover=&quot;venues='comiclink'&quot; data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
-	      &lt;text x=&quot;345&quot; y=&quot;15&quot; class=&quot;legend&quot;&gt;ComicLink&lt;/text&gt;
-	      &lt;rect x=&quot;405&quot; y=&quot;5&quot; width=&quot;15&quot; height=&quot;15&quot; fill=&quot;#542437&quot; data-ng-mouseover=&quot;venues='pedigree'&quot; data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
-	      &lt;text x=&quot;425&quot; y=&quot;15&quot; class=&quot;legend&quot;&gt;Pedigree&lt;/text&gt;
-	      &lt;rect x=&quot;485&quot; y=&quot;5&quot; width=&quot;15&quot; height=&quot;15&quot; fill=&quot;#53777A&quot; data-ng-mouseover=&quot;venues='metropolis'&quot; data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
-	      &lt;text x=&quot;505&quot; y=&quot;15&quot; class=&quot;legend&quot;&gt;Metropolis&lt;/text&gt;
-	      &lt;rect x=&quot;565&quot; y=&quot;5&quot; width=&quot;15&quot; height=&quot;15&quot; fill=&quot;#69D2E7&quot; data-ng-mouseover=&quot;venues='jp'&quot; data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
-	      &lt;text x=&quot;585&quot; y=&quot;15&quot; class=&quot;legend&quot;&gt;JP/Mint&lt;/text&gt;
-	      &lt;rect x=&quot;645&quot; y=&quot;5&quot; width=&quot;15&quot; height=&quot;15&quot; fill=&quot;#FA6900&quot; data-ng-mouseover=&quot;venues='mastronet'&quot; data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
-	      &lt;text x=&quot;665&quot; y=&quot;15&quot; class=&quot;legend&quot;&gt;Mastronet&lt;/text&gt;
-	      &lt;rect x=&quot;725&quot; y=&quot;5&quot; width=&quot;15&quot; height=&quot;15&quot; fill=&quot;#FE4365&quot; data-ng-mouseover=&quot;venues='pgc'&quot; data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
-	      &lt;text x=&quot;745&quot; y=&quot;15&quot; class=&quot;legend&quot;&gt;PGCMint&lt;/text&gt;
-	      &lt;rect x=&quot;805&quot; y=&quot;5&quot; width=&quot;15&quot; height=&quot;15&quot; fill=&quot;#666666&quot; data-ng-mouseover=&quot;venues='unknown'&quot; data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
-	      &lt;text x=&quot;825&quot; y=&quot;15&quot; class=&quot;legend&quot;&gt;Other/Unkown&lt;/text&gt;
-      &lt;/g&gt;
-    &lt;/svg&gt; 
-  &lt;/div&gt;
+&lt;div data-ng-controller=&quot;chartCtrl&quot;&gt;
+  &lt;svg version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; width=&quot;100%&quot; viewBox=&quot;0 0 980 600&quot; enable-background=&quot;new 0 0 980 600&quot; xml:space=&quot;preserve&quot;&gt;
+    &lt;filter id=&quot;drop-shadow&quot;&gt;
+      &lt;feGaussianBlur in=&quot;SourceAlpha&quot; stdDeviation=&quot;2&quot; result=&quot;blur&quot;/&gt;
+      &lt;feOffset in=&quot;blur&quot; dx=&quot;4&quot; dy=&quot;4&quot; result=&quot;offsetBlur&quot;/&gt;
+      &lt;feMerge&gt;
+        &lt;feMergeNode in=&quot;offsetBlur&quot;/&gt;
+        &lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;
+      &lt;/feMerge&gt;
+    &lt;/filter&gt;
+    &lt;g id=&quot;lines&quot;&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#000000&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;90.828&quot; y1=&quot;-8&quot; x2=&quot;90.828&quot; y2=&quot;579.297&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#B5B5B6&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;579.297&quot; x2=&quot;981.996&quot; y2=&quot;579.297&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#595858&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;734.275&quot; y1=&quot;49.246&quot; x2=&quot;734.275&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#595858&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;895.138&quot; y1=&quot;41&quot; x2=&quot;895.138&quot; y2=&quot;579.051&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#595858&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;573.414&quot; y1=&quot;49.246&quot; x2=&quot;573.414&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#595858&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;412.552&quot; y1=&quot;49.246&quot; x2=&quot;412.552&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#595858&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;251.689&quot; y1=&quot;49.246&quot; x2=&quot;251.689&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;171.259&quot; y1=&quot;49.246&quot; x2=&quot;171.259&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;131.043&quot; y1=&quot;49.246&quot; x2=&quot;131.043&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;211.474&quot; y1=&quot;49.246&quot; x2=&quot;211.474&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;332.121&quot; y1=&quot;49.246&quot; x2=&quot;332.121&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;291.905&quot; y1=&quot;49.246&quot; x2=&quot;291.905&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;372.336&quot; y1=&quot;49.246&quot; x2=&quot;372.336&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;492.982&quot; y1=&quot;49.246&quot; x2=&quot;492.982&quot; y2=&quot;579.968&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;452.767&quot; y1=&quot;49.246&quot; x2=&quot;452.767&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;533.199&quot; y1=&quot;49.246&quot; x2=&quot;533.199&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;653.845&quot; y1=&quot;49.246&quot; x2=&quot;653.845&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;613.629&quot; y1=&quot;49.246&quot; x2=&quot;613.629&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;694.062&quot; y1=&quot;49.246&quot; x2=&quot;694.062&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;814.707&quot; y1=&quot;49.246&quot; x2=&quot;814.707&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;774.49&quot; y1=&quot;49.246&quot; x2=&quot;774.49&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7D7D7D&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;854.923&quot; y1=&quot;49.246&quot; x2=&quot;854.923&quot; y2=&quot;579.161&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;366.972&quot; x2=&quot;981.996&quot; y2=&quot;366.972&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;473.134&quot; x2=&quot;981.997&quot; y2=&quot;473.134&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#2AA4DD&quot; stroke-width=&quot;3&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;558.064&quot; x2=&quot;981.996&quot; y2=&quot;558.064&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;260.809&quot; x2=&quot;981.996&quot; y2=&quot;260.809&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;154.646&quot; x2=&quot;981.996&quot; y2=&quot;154.646&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;48.483&quot; x2=&quot;981.996&quot; y2=&quot;48.483&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;494.366&quot; x2=&quot;981.998&quot; y2=&quot;494.366&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;536.832&quot; x2=&quot;981.998&quot; y2=&quot;536.832&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;515.6&quot; x2=&quot;981.998&quot; y2=&quot;515.6&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;451.901&quot; x2=&quot;981.998&quot; y2=&quot;451.901&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;430.669&quot; x2=&quot;981.998&quot; y2=&quot;430.669&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;409.437&quot; x2=&quot;981.998&quot; y2=&quot;409.437&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;388.204&quot; x2=&quot;981.999&quot; y2=&quot;388.204&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;303.273&quot; x2=&quot;981.999&quot; y2=&quot;303.273&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;345.738&quot; x2=&quot;981.999&quot; y2=&quot;345.738&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;324.506&quot; x2=&quot;981.999&quot; y2=&quot;324.506&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;282.041&quot; x2=&quot;982&quot; y2=&quot;282.041&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;239.576&quot; x2=&quot;982&quot; y2=&quot;239.576&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;218.343&quot; x2=&quot;982&quot; y2=&quot;218.343&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;197.111&quot; x2=&quot;982&quot; y2=&quot;197.111&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;175.878&quot; x2=&quot;982&quot; y2=&quot;175.878&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;133.413&quot; x2=&quot;982&quot; y2=&quot;133.413&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;112.181&quot; x2=&quot;982&quot; y2=&quot;112.181&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;90.948&quot; x2=&quot;982&quot; y2=&quot;90.948&quot;/&gt;
+        &lt;line fill=&quot;none&quot; stroke=&quot;#7BC791&quot; stroke-miterlimit=&quot;10&quot; x1=&quot;0&quot; y1=&quot;69.715&quot; x2=&quot;982&quot; y2=&quot;69.715&quot;/&gt;
+    &lt;/g&gt;
+    &lt;g id=&quot;text&quot;&gt;
+      &lt;text x=&quot;10&quot; y=&quot;16&quot;&gt;price in USD&lt;/text&gt;
+      &lt;text x=&quot;71&quot; y=&quot;574&quot;&gt;$0&lt;/text&gt;
+      &lt;text x=&quot;480&quot; y=&quot;595&quot;&gt;2003&lt;/text&gt;
+      &lt;text x=&quot;78&quot; y=&quot;595&quot;&gt;1993&lt;/text&gt;
+      &lt;text x=&quot;881&quot; y=&quot;595&quot;&gt;2013&lt;/text&gt;
+      &lt;text x=&quot;25&quot; y=&quot;553&quot;&gt;$100,000&lt;/text&gt;
+      &lt;text x=&quot;25&quot; y=&quot;468&quot;&gt;$500,000&lt;/text&gt;
+      &lt;text x=&quot;16&quot; y=&quot;363&quot;&gt;$1,000,000&lt;/text&gt;
+      &lt;text x=&quot;16&quot; y=&quot;256&quot;&gt;$1,500,000&lt;/text&gt;
+      &lt;text x=&quot;16&quot; y=&quot;151&quot;&gt;$2,000,000&lt;/text&gt;
+      &lt;text x=&quot;16&quot; y=&quot;45&quot; &gt;$2,500,000&lt;/text&gt;
+    &lt;/g&gt;
+    &lt;g id=&quot;dynamic&quot;&gt;
+      &lt;circle  data-ng-repeat=&quot;it in items | filter : venues&quot; 
+        opacity=&quot;0.8&quot; data-ng-attr-fill=&quot;{{colorPicker(it.venue)}}&quot; 
+        data-ng-attr-cx=&quot;{{it.date | xDate}}&quot; 
+        data-ng-mouseover=&quot;updateTooltip(it)&quot; 
+        data-ng-mouseout=&quot;updateTooltip(0)&quot;  
+        data-ng-attr-cy=&quot;{{it.price | yPrice}}&quot; 
+        r=&quot;7&quot; /&gt;
+      &lt;rect data-ng-show=&quot;tooltip.price&quot; 
+        data-ng-model=&quot;tooltip&quot; 
+        transform=&quot;translate(-55,-100)&quot; 
+        data-ng-attr-x=&quot;{{tooltip.date | xDate}}&quot; 
+        data-ng-attr-y=&quot;{{tooltip.price | yPrice}}&quot; 
+        width=&quot;150&quot; height=&quot;80&quot; fill=&quot;white&quot; 
+        stroke=&quot;&quot;  style=&quot;filter:url(#drop-shadow)&quot; /&gt;
+      &lt;text data-ng-show=&quot;tooltip.price&quot; 
+        data-ng-model=&quot;tooltip&quot; 
+        transform=&quot;translate(-45,-90)&quot; 
+        data-ng-attr-x=&quot;{{tooltip.date | xDate}}&quot; 
+        data-ng-attr-y=&quot;{{tooltip.price | yPrice}}&quot; &gt;{{tooltip.title}} {{tooltip.issue}}&lt;/text&gt;
+      &lt;text data-ng-show=&quot;tooltip.price&quot; 
+        data-ng-model=&quot;tooltip&quot; 
+        transform=&quot;translate(-45,-75)&quot; 
+        data-ng-attr-x=&quot;{{tooltip.date | xDate}}&quot; 
+        data-ng-attr-y=&quot;{{tooltip.price | yPrice}}&quot; &gt;{{tooltip.pedigree}}{{tooltip.collection}}{{tooltip.provenance}} {{tooltip.grade_src | srcFilter}} {{tooltip.grade}}&lt;/text&gt;
+      &lt;text data-ng-show=&quot;tooltip.price&quot; 
+        data-ng-model=&quot;tooltip&quot; 
+        transform=&quot;translate(-45,-60)&quot; 
+        data-ng-attr-x=&quot;{{tooltip.date | xDate}}&quot; 
+        data-ng-attr-y=&quot;{{tooltip.price | yPrice}}&quot; &gt;{{tooltip.price|currency}}&lt;/text&gt;
+      &lt;text data-ng-show=&quot;tooltip.price&quot; 
+        data-ng-model=&quot;tooltip&quot; 
+        transform=&quot;translate(-45,-45)&quot; 
+        data-ng-attr-x=&quot;{{tooltip.date | xDate}}&quot; 
+        data-ng-attr-y=&quot;{{tooltip.price | yPrice}}&quot; &gt;{{tooltip.date}}&lt;/text&gt;
+      &lt;text data-ng-show=&quot;tooltip.price&quot; 
+        data-ng-model=&quot;tooltip&quot; 
+        transform=&quot;translate(-45,-30)&quot; 
+        data-ng-attr-x=&quot;{{tooltip.date | xDate}}&quot; 
+        data-ng-attr-y=&quot;{{tooltip.price | yPrice}}&quot; &gt;{{tooltip.venue}}&lt;/text&gt;
+    &lt;/g&gt;
+    &lt;g id=&quot;legend&quot;&gt;
+      &lt;rect x=&quot;125&quot; y=&quot;5&quot; 
+        width=&quot;15&quot; height=&quot;15&quot; fill=&quot;#D95B43&quot; 
+        data-ng-mouseover=&quot;venues='comic connect'&quot; 
+        data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
+      &lt;text x=&quot;145&quot; y=&quot;15&quot; 
+        class=&quot;legend&quot;&gt;Comic Connect&lt;/text&gt;
+      &lt;rect x=&quot;245&quot; y=&quot;5&quot; width=&quot;15&quot; 
+        height=&quot;15&quot; fill=&quot;#ECD078&quot; 
+        data-ng-mouseover=&quot;venues='heritage'&quot; 
+        data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
+      &lt;text x=&quot;265&quot; y=&quot;15&quot; 
+        class=&quot;legend&quot;&gt;Heritage&lt;/text&gt;
+      &lt;rect x=&quot;325&quot; y=&quot;5&quot; width=&quot;15&quot; 
+        height=&quot;15&quot; fill=&quot;#C02942&quot; 
+        data-ng-mouseover=&quot;venues='comiclink'&quot; 
+        data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
+      &lt;text x=&quot;345&quot; y=&quot;15&quot; 
+        class=&quot;legend&quot;&gt;ComicLink&lt;/text&gt;
+      &lt;rect x=&quot;405&quot; y=&quot;5&quot; width=&quot;15&quot; 
+        height=&quot;15&quot; fill=&quot;#542437&quot; 
+        data-ng-mouseover=&quot;venues='pedigree'&quot; 
+        data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
+      &lt;text x=&quot;425&quot; y=&quot;15&quot; 
+        class=&quot;legend&quot;&gt;Pedigree&lt;/text&gt;
+      &lt;rect x=&quot;485&quot; y=&quot;5&quot; width=&quot;15&quot; 
+        height=&quot;15&quot; fill=&quot;#53777A&quot; 
+        data-ng-mouseover=&quot;venues='metropolis'&quot; 
+        data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
+      &lt;text x=&quot;505&quot; y=&quot;15&quot; 
+        class=&quot;legend&quot;&gt;Metropolis&lt;/text&gt;
+      &lt;rect x=&quot;565&quot; y=&quot;5&quot; width=&quot;15&quot; 
+        height=&quot;15&quot; fill=&quot;#69D2E7&quot; 
+        data-ng-mouseover=&quot;venues='jp'&quot; 
+        data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
+      &lt;text x=&quot;585&quot; y=&quot;15&quot; 
+        class=&quot;legend&quot;&gt;JP/Mint&lt;/text&gt;
+      &lt;rect x=&quot;645&quot; y=&quot;5&quot; width=&quot;15&quot; 
+        height=&quot;15&quot; fill=&quot;#FA6900&quot; 
+        data-ng-mouseover=&quot;venues='mastronet'&quot; 
+        data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
+      &lt;text x=&quot;665&quot; y=&quot;15&quot; 
+        class=&quot;legend&quot;&gt;Mastronet&lt;/text&gt;
+      &lt;rect x=&quot;725&quot; y=&quot;5&quot; width=&quot;15&quot; 
+        height=&quot;15&quot; fill=&quot;#FE4365&quot; 
+        data-ng-mouseover=&quot;venues='pgc'&quot; 
+        data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
+      &lt;text x=&quot;745&quot; y=&quot;15&quot; 
+        class=&quot;legend&quot;&gt;PGCMint&lt;/text&gt;
+      &lt;rect x=&quot;805&quot; y=&quot;5&quot; width=&quot;15&quot; 
+        height=&quot;15&quot; fill=&quot;#666666&quot; 
+        data-ng-mouseover=&quot;venues='unknown'&quot; 
+        data-ng-mouseout=&quot;venues=''&quot;&gt;&lt;/rect&gt;
+      &lt;text x=&quot;825&quot; y=&quot;15&quot; 
+        class=&quot;legend&quot;&gt;Other/Unkown&lt;/text&gt;
+    &lt;/g&gt;
+  &lt;/svg&gt; 
+&lt;/div&gt;
 &lt;/div&gt;
           </pre></code>  
           </section>
@@ -499,22 +549,23 @@ angular.module('comicsFactories', [])
          </section>
          <section id="d3">
 <iframe width="100%" height="600" scrolling="no"></iframe>
-<small> data from the <a href="http://hubwaydatachallenge.org/">Hubway Data Visualization Challenge</a></small>
+<small>Trip connections between the top 10 Hubway departure stations. Data from the <a href="http://hubwaydatachallenge.org/">Hubway Data Visualization Challenge</a></small>
         </section>
         <section>
           <h1>View Source</h1>
           <pre><code>
-[
-  [2689, 508, 1170, 189, 1007, 187,  745,  248,  263,  2311], 
-  [1064, 121, 830,  323, 2473, 393,  453,  312,  533,  599], 
-  [506,  296, 813,  530, 988,  540,  1936, 578,  747,  268], 
-  [706,  311, 1568, 526, 1273, 371,  618,  694,  481,  227], 
-  [178,  701, 277,  176, 663,  227,  379,  284,  330,  111], 
-  [550,  270, 548,  445, 196,  769,  868,  317,  1477, 195], 
-  [344,  141, 468,  955, 172,  346,  502,  388,  415,  97], 
-  [333,  207, 455,  545, 196,  1322, 618,  254,  659,  62], 
-  [655,  120, 301,  90,  2368, 108,  226,  99,   229,  875], 
-  [270,  221, 625,  436, 239,  278,  548,  1158, 320,  90]
+//What is the Matrix?            
+[/* ss   td   bpl   boy  back  cc    ken   bea   lw    newb */  
+  [2689, 508, 1170, 189, 1007, 187,  745,  248,  263,  2311], //ss
+  [1064, 121, 830,  323, 2473, 393,  453,  312,  533,  599],  //td
+  [506,  296, 813,  530, 988,  540,  1936, 578,  747,  268],  //bpl
+  [706,  311, 1568, 526, 1273, 371,  618,  694,  481,  227],  //boy
+  [178,  701, 277,  176, 663,  227,  379,  284,  330,  111],  //back
+  [550,  270, 548,  445, 196,  769,  868,  317,  1477, 195],  //cc
+  [344,  141, 468,  955, 172,  346,  502,  388,  415,  97],   //ken
+  [333,  207, 455,  545, 196,  1322, 618,  254,  659,  62],   //bea
+  [655,  120, 301,  90,  2368, 108,  226,  99,   229,  875],  //lw
+  [270,  221, 625,  436, 239,  278,  548,  1158, 320,  90]    //newb
 ]
           </pre></code>
         </section>
@@ -549,7 +600,10 @@ svg.append( "g" )
    .append( "path" )
    .style( "fill", function(d) { return fill(d.index); })
    .style( "stroke", function(d) { return fill(d.index); })
-   .attr( "d", d3.svg.arc().innerRadius( innerRadius ).outerRadius( outerRadius ))
+   .attr( "d", d3.svg
+                 .arc()
+                 .innerRadius( innerRadius )
+                 .outerRadius( outerRadius ))
    .on( "mouseover" , fade(.1) )
    .on( "mouseout" , fade(1) );
  
@@ -578,9 +632,12 @@ var arc = d3.svg
 ticks.append( "text" )
      .attr( "x", 8 )
      .attr( "dy", ".35em" )
-     .attr( "transform", function(d) { return d.angle > Math.PI ? "rotate(180)translate(-16)" : null; })
-     .style( "text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
-     .text( function(d) { return d.label; });
+     .attr( "transform", function(d) { 
+        return d.angle > Math.PI ? "rotate(180)translate(-16)" : null; })
+     .style( "text-anchor", function(d) { 
+        return d.angle > Math.PI ? "end" : null; })
+     .text( function(d) { 
+        return d.label; });
 
 svg.append( "g" )
    .attr( "class", "chord" )
@@ -589,7 +646,8 @@ svg.append( "g" )
    .enter()
    .append( "path" )
    .attr( "d", d3.svg.chord().radius( innerRadius ))
-   .style( "fill", function(d) { return fill(d.target.index); })
+   .style( "fill", function(d) { 
+      return fill(d.target.index); })
    .style( "opacity", 1)
    .outerRadius( outerRadius );
 
@@ -602,8 +660,10 @@ svg.append( "g" )
             .on( "mouseout", fade(.80));
 
   g.append( "svg:path" )
-   .style( "stroke", function(d) { return fill(d.index); })
-   .style( "fill", function(d) { return fill(d.index); })
+   .style( "stroke", function(d) { 
+      return fill(d.index); })
+   .style( "fill", function(d) { 
+      return fill(d.index); })
    .attr( "d", arc);
 
   g.append("svg:text")
@@ -611,9 +671,9 @@ svg.append( "g" )
     .attr("dy", ".35em")
     .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
     .attr("transform", function(d) {
-      var a = Math.sin( d.angle ) * (outerRadius +10),
-      b = Math.cos( d.angle ) * (outerRadius+30);
-      return "translate(" +a+","+(-b)+ ")";
+      var newX = Math.sin( d.angle ) * (outerRadius +10),
+      newY = Math.cos( d.angle ) * (outerRadius+30);
+      return "translate(" + newX +","+ (-newY) + ")";
     })
     .text(function(d) { return names[d.index]; });
 
@@ -835,38 +895,38 @@ function draw( data ) {
           blog @ <a href="http://HTMLCSSJavaScript.com">htmlcssjavascript.com</a></p>
         </section>
       </div>
-		</div>
+    </div>
 
-		<script src="lib/js/head.min.js"></script>
-	  <script src="js/reveal.min.js"></script>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
     <script src="../_assets/js/vendor/jquery-1.9.1.min.js"></script>
 
     <script src="../_assets/js/main.js"></script>
-	  <script>
-  	// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
+    <script>
+    // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
         rollingLinks: false,
-				progress: false,
-				history: true,
-				center: true,
-  			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
-  			// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-				],
+        progress: false,
+        history: true,
+        center: true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ],
         maxScale: 1.4
-			});
+      });
 
-		</script>
+    </script>
 
-	</body>
+  </body>
 </html>
