@@ -573,19 +573,35 @@ angular.module('comicsFactories', [])
           <h1>View Source</h1>
 <pre><code>
 //from bl.ocks.org/mbostock/4062006 etc. 
+
+/*
+* Create a chord layout
+* Pass in our matrix
+*/
 var chord = d3.layout.chord()
     .padding( .05 )
     .sortSubgroups( d3.descending )
     .matrix( matrix );
+/*
+* Set some metrics
+*/
+
 var width = 900,
     height = 500,
     innerRadius = Math.min( width, height ) * .35,
     outerRadius = innerRadius * 1.1;
 
+/*
+* https://github.com/mbostock/d3/wiki/Ordinal-Scales
+*/
+
 var fill = d3.scale.ordinal()
              .domain( d3.range(4) )
              .range(["#336699", "#99ccff", "#6699cc", "#0066cc"]);
 
+/*
+* Append the SVG element
+*/
 var svg = d3.select( "body" )
             .append( "svg" )
             .attr( "width", width )
@@ -593,6 +609,9 @@ var svg = d3.select( "body" )
             .append( "g" )
             .attr( "transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
+/*
+* Append a group, insert the arced paths on the outside of the visualization
+*/
 svg.append( "g" )
    .selectAll( "path" )
    .data( chord.groups )
@@ -606,6 +625,7 @@ svg.append( "g" )
                  .outerRadius( outerRadius ))
    .on( "mouseover" , fade(.1) )
    .on( "mouseout" , fade(1) );
+ 
  
 var ticks = svg.append( "g" )
                .selectAll( "g" )
