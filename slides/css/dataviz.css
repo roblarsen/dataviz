@@ -25,7 +25,7 @@
     clear:both;
     margin-top:4px;
     list-style-type : none;
-    font-size:80%;
+    font-size:75%;
     height:32px;
 }
 
@@ -37,6 +37,9 @@
     margin: 2px 6px 0 0;    
 }
 .reveal .support li.ie b {
+    background : url(../img/icons-32.png) -159px 4px no-repeat; 
+}
+.reveal .support li.ie_mob b {
     background : url(../img/icons-32.png) -159px 4px no-repeat; 
 }
 
@@ -81,7 +84,7 @@
     clear: none;
     float:left;
     display:block;
-    padding: 0 5px;
+    padding: 0 3px;
     margin-left:0;
 }
 

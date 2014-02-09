@@ -28,6 +28,7 @@
                 });
               }
             },
+<<<<<<< HEAD
             hc : {
               init :function(){ 
                 var seriesOptions = [],
@@ -83,6 +84,8 @@
                 });
               }
             },
+=======
+>>>>>>> origin/master
             d3 : {
               init: function(){
                 
@@ -142,7 +145,6 @@
               
                }    
                 for (i = 0; i < buildmatrix.length; i++){
-                  console.log(buildmatrix[i][0]);
                   var newtotals = [];
                   count = 0;
                   for (var j = 0, len = buildmatrix[i][1].length; j <len; j++ ) {
@@ -165,9 +167,6 @@
                       newtotals.push(count);
                       count = 0;  
                     } 
-                    /*
-                    NOOOOOOOOOOOOOOO
-                     */
                     tmp = [];
                     tmp[0] = newtotals[4];
                     tmp[1] = newtotals[0];
@@ -267,15 +266,14 @@
                       .style("stroke", function(d) { return fill(d.index); })
                       .style("fill", function(d) { return fill(d.index); })
                       .attr("d", arc);
-                
                   g.append("svg:text")
                       .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
                       .attr("dy", ".35em")
                       .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
                       .attr("transform", function(d) {
-                        return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
-                            + "translate(" + (innerRadius + 26) + ")"
-                            + (d.angle > Math.PI ? "rotate(180)" : "");
+                        var a = Math.sin( d.angle ) * (outerRadius +10),
+                        b = Math.cos( d.angle ) * (outerRadius+30);
+                        return "translate(" +a+","+(-b)+ ")";
                       })
                       .text(function(d) { return names[d.index]; });
                 
@@ -302,35 +300,6 @@
                 
                 }
             },
-            raphael :{
-              init : function(){
-                var paper = Raphael(0, 0, 900, 550);
-                var alpe = paper.path("M71.5,538.641l29.937-15.665l30.633-14.271l30.981-16.014 l31.329-14.968l30.633-12.88l30.981-10.791l29.937-10.443l32.026-12.184l29.936-11.835l30.285-11.488l30.633-10.442l30.981-12.88 l29.937-11.488l30.633-13.924l30.285-10.792L562.672,335l29.937-11.835l31.329-9.747l29.937-12.88l32.374-11.487l30.285-12.879  l30.285-11.835l29.938-12.184l29.937-11.836l31.678-10.095L868.307,225h13.576  L886,538 L71.5,538")
-                                .attr('fill','url(../slides/img/alpe.jpg)');
-                function climb( name, time, hex, endpos){
-                  var rider = paper.text(10, 10, name)
-                                 .attr("fill", hex)
-                                 .attr("font-size", "14px");
-                    time = time *5;             
-                    rider.animateAlong({
-                      path: "M71.5,538.641l29.937-15.665l30.633-14.271l30.981-16.014 l31.329-14.968l30.633-12.88l30.981-10.791l29.937-10.443l32.026-12.184l29.936-11.835l30.285-11.488l30.633-10.442l30.981-12.88 l29.937-11.488l30.633-13.924l30.285-10.792L562.672,335l29.937-11.835l31.329-9.747l29.937-12.88l32.374-11.487l30.285-12.879  l30.285-11.835l29.938-12.184l29.937-11.836l31.678-10.095L868.307,225h13.576",
-                      rotate: false,
-                      duration: time,
-                      easing: 'ease-out',
-                      debug: false
-                   },function(){ rider.animate({x:endpos.x,y:endpos.y}, 1000)});
-                }
-                climb("Pantani 1997 37.35", 3735*2, "#06c", {x:100,y:30});
-                climb("Lance 2004 37.36", 3736*2, "#cc0", {x:100,y:60});
-                climb("Sastre 2008 39.31", 3931*2, "#c00", {x:100,y:90}); 
-                climb("Sanchez 2011 41.21", 4121*2, "#c00", {x:100,y:120});
-                climb("Coppi 1952 45.22", 4522*2, "#06c", {x:100,y:150});
-                climb("The Badger 1986 48.00", 4800*2, "#000", {x:100,y:180});
-              }
-            },
-            ceejs : {
-
-            },
             _init : function(){
             
               if ($(".reveal").length){
@@ -341,31 +310,16 @@
                         .find("iframe")
                         .attr("src","../demo/chord.html"); 
                       break;
-                   case "raphael":
-                      $(event.currentSlide)
-                        .find("iframe")
-                        .attr("src","../demo/raphael.html"); 
-                      break;
-                   case "ceejs":
-                      $(event.currentSlide)
-                        .find("iframe")
-                        .attr("src","../demo/ceejs.html"); 
-                      break;
                    case "canvas":
                       $(event.currentSlide)
                         .find("iframe")
                         .attr("src","../demo/canvas.html"); 
                       break;
-                   case "highstock":
+                   case "angular":
                       $(event.currentSlide)
                         .find("iframe")
-                        .attr("src","../demo/highstock.html"); 
+                        .attr("src","../demo/100k/standalone.html"); 
                       break;    
-                   case "jit":
-                      $(event.currentSlide)
-                        .find("iframe")
-                        .attr("src","../demo/jit.html"); 
-                      break;   
                    case "gm":
                       $(event.currentSlide)
                         .find("iframe")

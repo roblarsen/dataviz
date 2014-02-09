@@ -1,6 +1,6 @@
 #Data Visualization in the Browser
 
-My presentation for HTML5 Developer Conference.
+My presentation for jQuery Conference San Diego. February 13, 2014
 
 All code (where I actually own the copyright) is MIT. The content is [CC BY-NC 3.0](http://creativecommons.org/licenses/by-nc/3.0/)
 
