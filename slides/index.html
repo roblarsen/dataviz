@@ -582,10 +582,6 @@ var chord = d3.layout.chord()
     .padding( .05 )
     .sortSubgroups( d3.descending )
     .matrix( matrix );
-/*
-* Set some metrics
-*/
-
 var width = 900,
     height = 500,
     innerRadius = Math.min( width, height ) * .35,
@@ -594,14 +590,10 @@ var width = 900,
 /*
 * https://github.com/mbostock/d3/wiki/Ordinal-Scales
 */
-
 var fill = d3.scale.ordinal()
              .domain( d3.range(4) )
              .range(["#336699", "#99ccff", "#6699cc", "#0066cc"]);
 
-/*
-* Append the SVG element
-*/
 var svg = d3.select( "body" )
             .append( "svg" )
             .attr( "width", width )
@@ -609,9 +601,6 @@ var svg = d3.select( "body" )
             .append( "g" )
             .attr( "transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-/*
-* Append a group, insert the arced paths on the outside of the visualization
-*/
 svg.append( "g" )
    .selectAll( "path" )
    .data( chord.groups )
@@ -625,7 +614,6 @@ svg.append( "g" )
                  .outerRadius( outerRadius ))
    .on( "mouseover" , fade(.1) )
    .on( "mouseout" , fade(1) );
- 
  
 var ticks = svg.append( "g" )
                .selectAll( "g" )
@@ -646,9 +634,11 @@ ticks.append( "line" )
      .attr( "x2", 5 )
      .attr( "y2", 0 )
      .style( "stroke", "#000" );
+
 var arc = d3.svg
             .arc()
             .innerRadius( innerRadius );
+
 ticks.append( "text" )
      .attr( "x", 8 )
      .attr( "dy", ".35em" )
@@ -671,31 +661,37 @@ svg.append( "g" )
    .style( "opacity", 1)
    .outerRadius( outerRadius );
 
- var g = svg.selectAll( "g.group" )
-            .data( chord.groups )
-            .enter()
-            .append( "svg:g" )
-            .attr( "class", "group")
-            .on( "mouseover", fade(.02))
-            .on( "mouseout", fade(.80));
+var g = svg.selectAll( "g.group" )
+          .data( chord.groups )
+          .enter()
+          .append( "svg:g" )
+          .attr( "class", "group")
+          .on( "mouseover", fade(.02))
+          .on( "mouseout", fade(.80));
 
-  g.append( "svg:path" )
-   .style( "stroke", function(d) { 
-      return fill(d.index); })
-   .style( "fill", function(d) { 
-      return fill(d.index); })
-   .attr( "d", arc);
+g.append( "svg:path" )
+ .style( "stroke", function(d) { 
+    return fill(d.index); })
+ .style( "fill", function(d) { 
+    return fill(d.index); })
+ .attr( "d", arc);
 
-  g.append("svg:text")
-    .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
-    .attr("dy", ".35em")
-    .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
-    .attr("transform", function(d) {
-      var newX = Math.sin( d.angle ) * (outerRadius +10),
-      newY = Math.cos( d.angle ) * (outerRadius+30);
-      return "translate(" + newX +","+ (-newY) + ")";
-    })
-    .text(function(d) { return names[d.index]; });
+/*
+* Customized
+*/
+g.append("svg:text")
+  .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
+  .attr("dy", ".35em")
+  .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+  .attr("transform", function(d) {
+/*
+* Get the lengths of some triangle legs. Return the newX and newY of the label
+*/
+    var newX = Math.sin( d.angle ) * (outerRadius +10),
+    newY = Math.cos( d.angle ) * (outerRadius+30);
+    return "translate(" + newX +","+ (-newY) + ")";
+  })
+  .text(function(d) { return names[d.index]; });
 
 
 function groupTicks(d) {
@@ -722,7 +718,7 @@ function fade( opacity ) {
         </section>
         <section>
           <section>
-            <h1>Canvas: Core Canvas </h1>
+            <h1>Canvas</h1>
            <blockquote cite="http://www.w3.org/TR/2dcontext2/#drawing-rectangles-to-the-canvas">This specification defines the 2D Context, Level 2 for the HTML canvas element. The 2D Context provides objects, methods, and properties to draw and manipulate graphics on a canvas drawing surface.</blockquote>
          </section>
          <section id="canvas">

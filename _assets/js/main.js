@@ -213,8 +213,10 @@
                       .attr("dy", ".35em")
                       .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
                       .attr("transform", function(d) {
+                        
                         var a = Math.sin( d.angle ) * (outerRadius +10),
                         b = Math.cos( d.angle ) * (outerRadius+30);
+                        console.log(a,b);
                         return "translate(" +a+","+(-b)+ ")";
                       })
                       .text(function(d) { return names[d.index]; });
