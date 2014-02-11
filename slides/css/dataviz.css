@@ -1,100 +1,97 @@
 @charset "utf-8";
 /*********************************************
- * DATAVIZ Specific Styles
+ * DATAVIZ Presentation Specific Styles
+ * https://github.com/roblarsen/dataviz
  *********************************************/
-
 .reveal #last-fm-svg {
-  width:840px;
-  height:340px; 
-  overflow:scroll; 
-  position:relative;
+	width:840px;
+	height:340px; 
+	overflow:scroll; 
+	position:relative;
 }
 
 .reveal #last-fm-svg div{
-  position:absolute; 
-  width:1260px; 
-  height:510px; 
-  padding:0; 
-  top:-80px;
+	position:absolute; 
+	width:1260px; 
+	height:510px; 
+	padding:0; 
+	top:-80px;
 }
 .reveal #last-fm-svg div img {
-  margin:0;
-  border:0;
+	margin:0;
+	border:0;
 }
 .reveal .support li {
-    clear:both;
-    margin-top:4px;
-    list-style-type : none;
-    font-size:75%;
-    height:32px;
+	clear:both;
+	margin-top:4px;
+	list-style-type : none;
+	font-size:75%;
+	height:32px;
 }
 
 .reveal .support li b {
-    float:left;
-    text-indent : -9999px;
-    height:32px;
-    width : 32px;
-    margin: 2px 6px 0 0;    
+	float:left;
+	text-indent : -9999px;
+	height:32px;
+	width : 32px;
+	margin: 2px 6px 0 0;    
 }
 .reveal .support li.ie b {
-    background : url(../img/icons-32.png) -159px 4px no-repeat; 
+	background : url(../img/icons-32.png) -159px 4px no-repeat; 
 }
 .reveal .support li.ie_mob b {
-    background : url(../img/icons-32.png) -159px 4px no-repeat; 
+	background : url(../img/icons-32.png) -159px 4px no-repeat; 
 }
 
 .reveal .support li.firefox b {
-    background : url(../img/icons-32.png) -64px 2px no-repeat; 
- }
+	background : url(../img/icons-32.png) -64px 2px no-repeat; 
+}
 .reveal .support li.chrome b {
-    background : url(../img/icons-32.png) -32px 2px no-repeat; 
- }
+	background : url(../img/icons-32.png) -32px 2px no-repeat; 
+}
 .reveal .support li.opera b {
-    background : url(../img/icons-32.png) -96px 2px no-repeat; 
- }
+	background : url(../img/icons-32.png) -96px 2px no-repeat; 
+}
 .reveal .support li.safari b {
-    background : url(../img/icons-32.png) -128px 2px no-repeat; 
- }
+	background : url(../img/icons-32.png) -128px 2px no-repeat; 
+}
 .reveal .support li.android b {
-    background : url(../img/icons-32.png) -225px 2px no-repeat; 
- }
+	background : url(../img/icons-32.png) -225px 2px no-repeat; 
+}
 .reveal .support li.ios_saf b {
-    background : url(../img/icons-32.png) -356px 2px no-repeat; 
+	background : url(../img/icons-32.png) -356px 2px no-repeat; 
 }
 .reveal .support li.op_mini b, .reveal .support li.op_mob b {
-    background : url(../img/icons-32.png) -290px 2px no-repeat; 
+	background : url(../img/icons-32.png) -290px 2px no-repeat; 
 }
 .reveal .support li.bb b {
-    background : url(../img/icons-32.png) -321px 2px no-repeat; 
+	background : url(../img/icons-32.png) -321px 2px no-repeat; 
 }
 .reveal .support li.and_chr b {
-    background : url(../img/icons-32.png) -192px 2px no-repeat; 
+	background : url(../img/icons-32.png) -192px 2px no-repeat; 
 }
 .reveal .support li.and_ff b {
-    background : url(../img/icons-32.png) -253px 2px no-repeat; 
+	background : url(../img/icons-32.png) -253px 2px no-repeat; 
 }
 .reveal .support li ul {
-
-    display : inline-block;
-    float : left;
-    margin-left : 0;
-
+	display : inline-block;
+	float : left;
+	margin-left : 0;
 }
 .reveal .support li li {
-    clear: none;
-    float:left;
-    display:block;
-    padding: 0 3px;
-    margin-left:0;
+	clear: none;
+	float:left;
+	display:block;
+	padding: 0 3px;
+	margin-left:0;
 }
 
 .reveal .support li li.y {
- background : #6F6;
+	background : #6F6;
 }
 .reveal .support li li.p , .reveal .support li li.a {
- background : #CC3;
+	background : #CC3;
 }
 .reveal .support li li.n {
- background : #ccc;
+	background : #ccc;
 }
-
