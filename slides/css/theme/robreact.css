@@ -215,3 +215,7 @@ body {
 .reveal dt{
   font-size:1.5em;
 }
+
+.reveal code {
+  font-family:Consola,Inconsolata, "Courier New", Courier, monospace
+}
